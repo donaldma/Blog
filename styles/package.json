@@ -1,0 +1,18 @@
+{
+  "name": "styles",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "./node_modules/.bin/node-sass -w src/main.scss -o build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap-sass": "^3.3.7",
+    "moment": "^2.18.1",
+    "node-sass": "^4.5.3",
+    "react-day-picker": "^6.1.0"
+  }
+}
