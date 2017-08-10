@@ -26,6 +26,47 @@ class PostsNew extends Component {
     );
   }
 
+  renderFieldLarge(field) {
+    // ES6 destructing 
+    const { meta: { touched, error } } = field;
+    const className = `form-group ${touched && error ? 'has-danger' : ''}`;
+
+    return(
+      <div className={className}>
+        <label>{field.label}</label>
+        <textarea
+          className="form-control"
+          type="text"
+          {...field.input}
+        />
+        <div className="text-help">
+        {touched ? error : ''}
+        </div>
+      </div>
+    );
+  }
+
+  renderFieldSelect(field) {
+    // ES6 destructing 
+    const { meta: { touched, error } } = field;
+    const className = `form-group ${touched && error ? 'has-danger' : ''}`;
+
+    return(
+      <div className={className}>
+        <label>{field.label}</label>
+        <select className="form-control category-select" type="text" {...field.input}>
+          <option>Beauty</option>
+          <option>Fashion</option>
+          <option>Travel</option>
+          <option>Fitness</option>
+        </select>
+        <div className="text-help">
+        {touched ? error : ''}
+        </div>
+      </div>
+    );
+  }
+
   onSubmit = (values) => {
     this.props.createPost(values, () => {
       this.props.history.push('/');
@@ -45,12 +86,12 @@ class PostsNew extends Component {
         <Field
           label="Categories"
           name="categories"
-          component={this.renderField}
+          component={this.renderFieldSelect}
         />
         <Field
           label="Post Content"
           name="content"
-          component={this.renderField}
+          component={this.renderFieldLarge}
         />
         <button type="submit" className="btn btn-primary">Submit</button>
         <Link to="/" className="btn btn-danger">Cancel</Link>
