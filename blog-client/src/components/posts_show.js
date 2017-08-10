@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { fetchPost, deletePost } from '../actions';
+import Moment from 'react-moment';
 
 class PostsShow extends Component {
   componentDidMount(){
@@ -33,6 +34,7 @@ class PostsShow extends Component {
         </button>
         <h3>{post.title}</h3>
         <h6>Categories: {post.categories}</h6>
+        <h6><Moment format="ddd MMMM Do YYYY">{post.created_at}</Moment></h6>
         <p>{post.content}</p>
       </div>
     );
