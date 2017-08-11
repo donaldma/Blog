@@ -1,5 +1,6 @@
 exports.up = function (knex, Promise) {
-  return Promise.all([knex.schema.table('users', function (table) {
+  return Promise.all([
+    knex.schema.table('users', function (table) {
       table.timestamps(true, true);
     }),
     knex.schema.table('posts', function (table) {
@@ -9,7 +10,8 @@ exports.up = function (knex, Promise) {
 };
 
 exports.down = function (knex, Promise) {
-  return Promise.all([knex.schema.table('users', function (table) {
+  return Promise.all([
+    knex.schema.table('users', function (table) {
       table.dropColumn('created_at');
       table.dropColumn('updated_at');
     }),

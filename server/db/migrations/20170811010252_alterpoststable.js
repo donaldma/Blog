@@ -1,8 +1,7 @@
 exports.up = function (knex, Promise) {
   return Promise.all([
     knex.schema.table('posts', function (table) {
-      table.dropColumn('body');
-      table.text('content');
+      table.string('category');
     })
   ]);
 };
@@ -10,8 +9,7 @@ exports.up = function (knex, Promise) {
 exports.down = function (knex, Promise) {
   return Promise.all([
     knex.schema.table('posts', function (table) {
-      table.string('body');
-      table.dropColumn('content');
+      table.dropColumn('category');
     })
   ]);
 };

@@ -16,11 +16,12 @@ module.exports = (knex) => {
         .where({ id })
     },
 
-    createPost: (content) => {
+    createPost: (data) => {
       return knex.table('posts')
         .insert({
-          title: content.title,
-          content: content.content
+          title: data.title,
+          content: data.content,
+          category: data.categories
         })
     },
 

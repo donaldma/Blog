@@ -33,7 +33,7 @@ class PostsShow extends Component {
           Delete Post
         </button>
         <h3>{post.title}</h3>
-        <h6>Categories: {post.categories}</h6>
+        <h6>Category: {post.category}</h6>
         <h6><Moment format="ddd MMMM Do YYYY">{post.created_at}</Moment></h6>
         <p>{post.content}</p>
       </div>
