@@ -1,8 +1,6 @@
-form a {
-  margin-left: 10px; }
-
 .navbar {
-  border-radius: 0px; }
+  border-radius: 0px;
+  background-color: lightcyan; }
 
 .category-select {
   height: 3em; }
