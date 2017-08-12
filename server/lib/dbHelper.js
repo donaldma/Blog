@@ -37,7 +37,7 @@ module.exports = (knex) => {
     getAboutMe: () => {
       return knex('users')
         .select()
-        .where('name', 'Gab')
+        .where('name', 'Gabriella Gloria')
     },
 
     getPost: (id) => {
