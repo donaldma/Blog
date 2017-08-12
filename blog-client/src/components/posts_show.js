@@ -6,10 +6,8 @@ import Moment from 'react-moment';
 
 class PostsShow extends Component {
   componentDidMount(){
-    if (!this.props.post) {
-      const { id } = this.props.match.params;
-      this.props.fetchPost(id);
-    }
+    const { id } = this.props.match.params;
+    this.props.fetchPost(id);
   }
 
   onDeleteClick = () => {
@@ -25,7 +23,6 @@ class PostsShow extends Component {
     if(!post) {
       return <div>Loading...</div>;
     }
-
     return (
       <div>
         <Link to="/" className="btn btn-primary">Return Home</Link>

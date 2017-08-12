@@ -9,7 +9,7 @@ class PostsNew extends Component {
   renderField(field) {
     // ES6 destructing 
     const { meta: { touched, error } } = field;
-    const className = `form-group ${touched && error ? 'has-danger' : ''}`;
+    const className = `form-group ${touched && error ? 'has-error' : ''}`;
 
     return(
       <div className={className}>
@@ -19,7 +19,7 @@ class PostsNew extends Component {
           type="text"
           {...field.input}
         />
-        <div className="text-help">
+        <div className="text-danger">
         {touched ? error : ''}
         </div>
       </div>
@@ -29,7 +29,7 @@ class PostsNew extends Component {
   renderFieldLarge(field) {
     // ES6 destructing 
     const { meta: { touched, error } } = field;
-    const className = `form-group ${touched && error ? 'has-danger' : ''}`;
+    const className = `form-group ${touched && error ? 'has-error' : ''}`;
 
     return(
       <div className={className}>
@@ -39,7 +39,7 @@ class PostsNew extends Component {
           type="text"
           {...field.input}
         />
-        <div className="text-help">
+        <div className="text-danger">
         {touched ? error : ''}
         </div>
       </div>
@@ -49,7 +49,7 @@ class PostsNew extends Component {
   renderFieldSelect(field) {
     // ES6 destructing 
     const { meta: { touched, error } } = field;
-    const className = `form-group ${touched && error ? 'has-danger' : ''}`;
+    const className = `form-group ${touched && error ? 'has-error' : ''}`;
 
     return(
       <div className={className}>
@@ -60,7 +60,7 @@ class PostsNew extends Component {
           <option>Travel</option>
           <option>Fitness</option>
         </select>
-        <div className="text-help">
+        <div className="text-danger">
         {touched ? error : ''}
         </div>
       </div>

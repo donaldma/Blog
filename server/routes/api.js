@@ -10,6 +10,36 @@ module.exports = (dbHelper) => {
     })
   });
 
+  router.get('/beauty', (req, res) => {
+    dbHelper.getPostsBeauty().then((results) => {
+      res.json(results);
+    })
+  });
+
+  router.get('/fashion', (req, res) => {
+    dbHelper.getPostsFashion().then((results) => {
+      res.json(results);
+    })
+  });
+
+  router.get('/travel', (req, res) => {
+    dbHelper.getPostsTravel().then((results) => {
+      res.json(results);
+    })
+  });
+
+  router.get('/fitness', (req, res) => {
+    dbHelper.getPostsFitness().then((results) => {
+      res.json(results);
+    })
+  });
+
+  router.get('/about', (req, res) => {
+    dbHelper.getAboutMe().then((results) => {
+      res.json(results);
+    })
+  });
+
   router.post('/posts', (req, res) => {
     dbHelper.createPost(req.body).then((results) => {
       res.json(results);

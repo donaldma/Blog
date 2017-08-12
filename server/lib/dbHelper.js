@@ -6,18 +6,48 @@ module.exports = (knex) => {
   return {
 
     getPosts: () => {
-      return knex.table('posts')
+      return knex('posts')
         .select()
     },
 
+    getPostsBeauty: () => {
+      return knex('posts')
+        .select()
+        .where('category', 'Beauty')
+    },
+
+    getPostsFashion: () => {
+      return knex('posts')
+        .select()
+        .where('category', 'Fashion')
+    },
+
+    getPostsTravel: () => {
+      return knex('posts')
+        .select()
+        .where('category', 'Travel')
+    },
+
+    getPostsFitness: () => {
+      return knex('posts')
+        .select()
+        .where('category', 'Fitness')
+    },
+
+    getAboutMe: () => {
+      return knex('users')
+        .select()
+        .where('name', 'Gab')
+    },
+
     getPost: (id) => {
-      return knex.table('posts')
+      return knex('posts')
         .select()
         .where({ id })
     },
 
     createPost: (data) => {
-      return knex.table('posts')
+      return knex('posts')
         .insert({
           title: data.title,
           content: data.content,
@@ -26,7 +56,7 @@ module.exports = (knex) => {
     },
 
     deletePost: (id) => {
-      return knex.table('posts')
+      return knex('posts')
         .where({ id })
         .del();
     }

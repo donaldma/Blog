@@ -2,11 +2,11 @@ import _ from 'lodash';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { fetchPosts } from '../actions';
+import { fetchPostsFitness } from '../actions';
 
-class PostsIndex extends Component {
+class PostsFitness extends Component {
   componentDidMount() {
-    this.props.fetchPosts();
+    this.props.fetchPostsFitness();
   }
 
   renderPosts() {
@@ -29,7 +29,7 @@ class PostsIndex extends Component {
             Add a Post
           </Link>
         </div>
-        <h3>Posts</h3>
+        <h3>Fitness</h3>
         <ul className="list-group">
           {this.renderPosts()}
         </ul>
@@ -42,4 +42,4 @@ function mapStateToProps(state) {
   return { posts: state.posts }
 }
 
-export default connect(mapStateToProps, { fetchPosts })(PostsIndex);
+export default connect(mapStateToProps, { fetchPostsFitness })(PostsFitness);
