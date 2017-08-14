@@ -3,6 +3,7 @@ const express = require('express');
 const app = express();
 const http = require('http'); 
 const server = http.createServer(app);
+const cors = require('cors');
 const db  = require('./db');
 const knexConfig = require("./knexfile");
 const knex = require("knex")(knexConfig[ENV]);
@@ -10,6 +11,8 @@ const bodyParser  = require("body-parser");
 const router = express.Router();
 const dbHelper = require("./lib/dbHelper")(knex);
 const apiRoutes = require("./routes/api");
+
+app.use(cors());
 
 app.set('view engine', 'ejs');
 
