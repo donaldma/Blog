@@ -15,8 +15,17 @@
 <body>
   <% include partials/_nav.ejs %>
   <div class="container">
-    <div id="react-root"></div>
+    <div class="col md-12">
+      <div class="site-branding">
+        <h1 class="site-title title-image"><a href="/" rel="home"><img src="/styles/imgs/logo.png" ></a></h1>
+      </div>
+      <div class="seperator"></div><br />
+      <div id="react-root"></div>
+    </div>
   </div>
+  <footer class="navbar-fixed-bottom copyright">
+    <p>Copyright &copy; 2017 Gabriella. All Right Reserved.</p>
+  </footer>
   <script src="http://localhost:8080/bundle.js"></script>
 </body>
 

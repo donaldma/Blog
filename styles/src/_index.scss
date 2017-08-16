@@ -1,0 +1,58 @@
+body {
+  background-color: $dark-white;
+}
+
+.seperator {
+  margin-top: 20px;
+  border-bottom: 1px solid #ddd;
+}
+
+.site-branding {
+  display: block;
+  padding: 60px 0;
+  text-align: center;
+  .site-title {
+    position: relative;
+    z-index: 9000;
+    margin-bottom: 5px;
+    margin-top: 0;
+    padding-top: 15px;
+    font-size: 32px;
+    line-height: 38px;
+    font-weight: 700;
+    a {
+      &:hover,
+      &:focus {
+        text-decoration: none;
+      }
+    }
+    &.title-image {
+      margin-top: 0;
+      img {
+        height: 150px;
+        width: auto;
+        margin-bottom: 5px;
+      }
+    }
+  }
+  @media screen and (max-width: 767px) and (min-width: 601px) {
+    .site-title,
+    .site-description {
+      text-align: center;
+    }
+  }
+  @media screen and (max-width: 37.5em) {
+    padding: 20px 0;
+    .site-title {
+      &.title-image {
+        img {
+          height: 100px;
+          margin-bottom: 0;
+        }
+      }
+    }
+    .site-description {
+      font-size: 12px;
+    }
+  }
+}
