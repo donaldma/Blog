@@ -46,6 +46,12 @@ module.exports = (dbHelper) => {
     })
   });
 
+  router.post('/posts/:id/edit', (req, res) => {
+    dbHelper.updatePost(req.params.id, req.body).then((results) => {
+      res.json(results);
+    })
+  });
+
   router.get('/posts/:id', (req, res) => {
     dbHelper.getPost(req.params.id).then((results) => {
       res.json(results);

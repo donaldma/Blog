@@ -3,21 +3,24 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { fetchPost, deletePost, fetchPosts } from '../actions';
 import Moment from 'react-moment';
+import PostsEdit from './posts_edit';
 
 class PostsShow extends Component {
   constructor(props) {
-    super(props)
-    // this.state = { 
-    //   isEditing: false,
-    //   title: this.props.post.title,
-    //   category: this.props.post.category,
-    //   date: this.props.post.created_at,
-    //   content: this.props.post.content
-    // };
+    super(props);
+    
+    this.state = {
+      isEditing: false,
+      post: {}
+    };
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.setState({ post: nextProps.post })
   }
 
   componentDidMount(){
-    this.props.fetchPosts();
+    this.props.fetchPosts();        
     const { id } = this.props.match.params;
     this.props.fetchPost(id);
   }
@@ -30,7 +33,7 @@ class PostsShow extends Component {
   }
 
   onEditClick = () => {
-    this.setState({ isEditing: true })
+    this.setState({ isEditing: !this.state.isEditing });
   }
 
   render() {
@@ -41,13 +44,13 @@ class PostsShow extends Component {
       return <div>Loading...</div>;
     }
 
-    // if (this.state.isEditing) {
-    //   return (
-    //     <div>
-    //       <h1>Edit Post</h1>
-    //     </div>
-    //   );
-    // }
+    if (this.state.isEditing) {
+      return (
+        <div>
+          <PostsEdit post={post} onEditClick={this.onEditClick}/>
+        </div>
+      );
+    }
 
     return (
       <div>

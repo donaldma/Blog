@@ -55,6 +55,16 @@ module.exports = (knex) => {
         })
     },
 
+    updatePost: (id, data) => {
+      return knex('posts')
+        .update({
+          title: data.title,
+          content: data.content,
+          category: data.categories
+        })
+        .where({ id })
+    },
+
     deletePost: (id) => {
       return knex('posts')
         .where({ id })

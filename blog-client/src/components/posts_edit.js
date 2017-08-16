@@ -1,12 +1,34 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { createPost } from '../actions';
+import { editPost } from '../actions';
 
-class PostsNew extends Component {
-  // Redux-Form convention
-  renderField(field) {
+
+class PostsEdit extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = ({
+      redirect: false
+    });
+  }
+
+  componentDidMount() {
+    this.handleInitialize();
+  }
+
+  handleInitialize = () => {
+    const data = {
+      "title": this.props.post.title,
+      "categories": this.props.post.category,
+      "content": this.props.post.content
+    };
+
+    this.props.initialize(data);
+  }
+  
+  renderField = (field) => {
     // ES6 destructing 
     const { meta: { touched, error } } = field;
     const className = `form-group ${touched && error ? 'has-error' : ''}`;
@@ -26,7 +48,7 @@ class PostsNew extends Component {
     );
   }
 
-  renderFieldLarge(field) {
+  renderFieldLarge = (field) => {
     // ES6 destructing 
     const { meta: { touched, error } } = field;
     const className = `form-group ${touched && error ? 'has-error' : ''}`;
@@ -46,7 +68,7 @@ class PostsNew extends Component {
     );
   }
 
-  renderFieldSelect(field) {
+  renderFieldSelect = (field) => {
     // ES6 destructing 
     const { meta: { touched, error } } = field;
     const className = `form-group ${touched && error ? 'has-error' : ''}`;
@@ -54,7 +76,7 @@ class PostsNew extends Component {
     return(
       <div className={className}>
         <label>{field.label}</label>
-        <select className="form-control category-select" type="text" {...field.input}>
+        <select className="form-control category-select" type="text" {...field.input} >
           <option>Beauty</option>
           <option>Fashion</option>
           <option>Travel</option>
@@ -68,19 +90,27 @@ class PostsNew extends Component {
   }
 
   onSubmit = (values) => {
-    this.props.createPost(values, () => {
-      this.props.history.push('/');
+    const id = this.props.post.id
+    this.props.editPost(id, values, () => {
+      this.setState({ redirect: true })      
     });
   }
 
   render() {
     const { handleSubmit } = this.props;
 
+    if(this.state.redirect) {
+      return(
+        <Redirect to='/' />
+      );
+    }
+
     return(
       <form onSubmit={handleSubmit(this.onSubmit)}>
         <Field
           label="Title For Post"
           name="title"
+          defaultValue={this.props.post.title}
           component={this.renderField}
         />
         <Field
@@ -91,16 +121,16 @@ class PostsNew extends Component {
         <Field
           label="Post Content"
           name="content"
+          defaultValue={this.props.post.content}
           component={this.renderFieldLarge}
         />
-        <button type="submit" className="btn btn-primary">Submit</button>
+        <button type="submit" className="btn btn-primary">Save</button>
         <Link to="/" className="btn btn-danger">Cancel</Link>
       </form>
     );
   }
 }
 
-// Redux-Form convention
 function validate(values) {
   const errors = {};
 
@@ -118,7 +148,9 @@ function validate(values) {
 
 export default reduxForm({
   validate,
-  form: 'PostsNewForm'
+  form: 'PostsNewForm',
+  onSubmitSuccess: () => {
+  }
 })(
-  connect(null, { createPost })(PostsNew)
+  connect(null, { editPost })(PostsEdit)
 );

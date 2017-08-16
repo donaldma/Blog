@@ -11,8 +11,13 @@ const bodyParser  = require("body-parser");
 const router = express.Router();
 const dbHelper = require("./lib/dbHelper")(knex);
 const apiRoutes = require("./routes/api");
+const knexLogger = require('knex-logger');
+
 
 app.use(cors());
+
+app.use(knexLogger(knex));
+
 
 app.set('view engine', 'ejs');
 

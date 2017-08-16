@@ -9,6 +9,7 @@ export const FETCH_ABOUT = 'fetch_about';
 export const CREATE_POST = 'create_post';
 export const FETCH_POST = 'fetch_post';
 export const DELETE_POST = 'delete_post';
+export const EDIT_POST = 'edit_post';
 
 export function fetchPosts() {
   const request = axios.get('/api/posts');
@@ -69,6 +70,16 @@ export function createPost(values, callback) {
 
   return {
     type: CREATE_POST,
+    payload: request
+  }  
+}
+
+export function editPost(id, values, callback) {
+  const request = axios.post(`/api/posts/${id}/edit`, values)
+    .then(() => callback());
+
+  return {
+    type: EDIT_POST,
     payload: request
   }  
 }
