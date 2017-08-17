@@ -69,6 +69,11 @@ module.exports = (knex) => {
       return knex('posts')
         .where({ id })
         .del();
+    },
+
+    getUserByEmail: (email) => {
+      return knex('users')
+        .where({ email })
     }
 
   }
