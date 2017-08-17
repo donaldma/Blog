@@ -6,7 +6,12 @@ const router  = express.Router();
 module.exports = (dbHelper) => {
 
   router.get('/:id', (req, res) => {
-    res.render('profile');
+    dbHelper.getUserById(req.params.id)
+      .then((result) => {
+        res.render('profile', {
+          user: result[0]
+        });
+      })
   })
 
   return router;

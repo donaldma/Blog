@@ -68,9 +68,14 @@ module.exports = (dbHelper) => {
     });
   });
 
-  router.post('/login', (req, res) => {
-    
-  })
+  router.get("/user", (req, res) => {
+
+    const user = req.session.user?{
+      id: req.session.user.id,
+      name: req.session.user.name
+    }: null;
+    res.json(user);
+  });
 
   return router;
 }

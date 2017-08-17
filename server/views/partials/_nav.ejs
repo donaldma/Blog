@@ -32,7 +32,7 @@
         <% } else { %>
         <li>
           <a href="/profile/<%=user.id%>">
-            <img class="nav-avatar" src="/styles/imgs/blogpfp.jpg">&nbsp;&nbsp;<%= user.name %>
+            <img class="nav-avatar" src="<%= user.avatar_url %>">&nbsp;&nbsp;<%= user.name %>
           </a>
         </li>
         <li><a href="/user/logout">Log out</a></li>

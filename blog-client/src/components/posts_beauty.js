@@ -2,11 +2,12 @@ import _ from 'lodash';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { fetchPostsBeauty } from '../actions';
+import { fetchPostsBeauty, fetchUser } from '../actions';
 
 class PostsBeauty extends Component {
   componentDidMount() {
     this.props.fetchPostsBeauty();
+    this.props.fetchUser();
   }
 
   renderPosts() {
@@ -22,13 +23,23 @@ class PostsBeauty extends Component {
   }
 
   render() {
+    if(this.props.user[0]) {
+      return(
+        <div>
+          <div>
+            <Link className="btn btn-primary" to="/posts/new">
+              Add a Post
+            </Link>
+          </div>
+          <h3>Beauty</h3>
+          <ul className="list-group">
+            {this.renderPosts()}
+          </ul>
+        </div>
+      );
+    }
     return(
       <div>
-        <div>
-          <Link className="btn btn-primary" to="/posts/new">
-            Add a Post
-          </Link>
-        </div>
         <h3>Beauty</h3>
         <ul className="list-group">
           {this.renderPosts()}
@@ -39,7 +50,10 @@ class PostsBeauty extends Component {
 }
 
 function mapStateToProps(state) {
-  return { posts: state.posts }
+  return { 
+    posts: state.posts,
+    user: state.user
+  }
 }
 
-export default connect(mapStateToProps, { fetchPostsBeauty })(PostsBeauty);
+export default connect(mapStateToProps, { fetchPostsBeauty, fetchUser })(PostsBeauty);

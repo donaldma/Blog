@@ -2,11 +2,12 @@ import _ from 'lodash';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { fetchPostsFashion } from '../actions';
+import { fetchPostsFashion, fetchUser } from '../actions';
 
 class PostsFashion extends Component {
   componentDidMount() {
     this.props.fetchPostsFashion();
+    this.props.fetchUser();
   }
 
   renderPosts() {
@@ -22,13 +23,23 @@ class PostsFashion extends Component {
   }
 
   render() {
+    if(this.props.user[0]) {
+      return(
+        <div>
+          <div>
+            <Link className="btn btn-primary" to="/posts/new">
+              Add a Post
+            </Link>
+          </div>
+          <h3>Fashion</h3>
+          <ul className="list-group">
+            {this.renderPosts()}
+          </ul>
+        </div>
+      );
+    }
     return(
       <div>
-        <div>
-          <Link className="btn btn-primary" to="/posts/new">
-            Add a Post
-          </Link>
-        </div>
         <h3>Fashion</h3>
         <ul className="list-group">
           {this.renderPosts()}
@@ -39,7 +50,10 @@ class PostsFashion extends Component {
 }
 
 function mapStateToProps(state) {
-  return { posts: state.posts }
+  return { 
+    posts: state.posts,
+    user: state.user
+  }
 }
 
-export default connect(mapStateToProps, { fetchPostsFashion })(PostsFashion);
+export default connect(mapStateToProps, { fetchPostsFashion, fetchUser })(PostsFashion);

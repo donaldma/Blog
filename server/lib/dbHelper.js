@@ -74,6 +74,11 @@ module.exports = (knex) => {
     getUserByEmail: (email) => {
       return knex('users')
         .where({ email })
+    },
+
+    getUserById: (id) => {
+      return knex('users')
+        .where({ id })
     }
 
   }

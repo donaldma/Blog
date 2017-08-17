@@ -10,6 +10,7 @@ export const CREATE_POST = 'create_post';
 export const FETCH_POST = 'fetch_post';
 export const DELETE_POST = 'delete_post';
 export const EDIT_POST = 'edit_post';
+export const FETCH_USER = 'fetch_user';
 
 export function fetchPosts() {
   const request = axios.get('/api/posts');
@@ -100,5 +101,14 @@ export function deletePost(id, callback) {
   return {
     type: DELETE_POST,
     payload: id
+  }
+}
+
+export function fetchUser() {
+  const request = axios.get('/api/user')
+  
+  return {
+    type: FETCH_USER,
+    payload: request
   }
 }
