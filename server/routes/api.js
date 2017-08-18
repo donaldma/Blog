@@ -70,10 +70,10 @@ module.exports = (dbHelper) => {
 
   router.get("/user", (req, res) => {
 
-    const user = req.session.user?{
+    const user = req.session.user ? {
       id: req.session.user.id,
       name: req.session.user.name
-    }: null;
+    } : null;
     res.json(user);
   });
 

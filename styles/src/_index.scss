@@ -38,24 +38,17 @@ body {
       }
     }
   }
-  @media screen and (max-width: 767px) and (min-width: 601px) {
-    .site-title,
-    .site-description {
-      text-align: center;
-    }
-  }
+
   @media screen and (max-width: 37.5em) {
     padding: 20px 0;
     .site-title {
+      padding-top: 50px;
       &.title-image {
         img {
           height: 100px;
           margin-bottom: 0;
         }
       }
-    }
-    .site-description {
-      font-size: 12px;
     }
   }
 }
