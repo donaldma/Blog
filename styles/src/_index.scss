@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
   background-color: $dark-white;
   height: 100%
 }
@@ -54,13 +55,19 @@ html, body {
   padding-top: 150px;
 }
 
-.copyright{
-	width: 100%;
-	padding: 30px 0;
-	text-align: center;
-	font-size: 10px;
-	text-transform: uppercase;
-	background-color: $white;
+@media only screen and (max-width: 767px) {
+  .well {
+    margin: 0 10px;
+  }
+}
+
+.copyright {
+  width: 100%;
+  padding: 30px 0;
+  text-align: center;
+  font-size: 10px;
+  text-transform: uppercase;
+  background-color: $white;
 }
 
 .site {
@@ -70,4 +77,33 @@ html, body {
   .site-content {
     flex: 1;
   }
+}
+
+.oops {
+  font-size: 150px;
+  font-weight: 700;
+  color: $dark-white;
+}
+
+a.error-link {
+  color: $dark-white;
+  text-decoration: none;
+}
+
+.error-text {
+  color: $dark-white;
+}
+
+.error-text-large {
+  color: $dark-white;
+  font-size: 80px;
+  font-weight: 600;    
+}
+
+.error-background {
+  background-image: url('../imgs/error_img.jpg');
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }

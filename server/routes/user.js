@@ -35,9 +35,7 @@ module.exports = (dbHelper) => {
     })
     .catch((error) => {
       console.log(error);
-      res.status(500).render('login', {
-        error: "Something unexpected happened, try again"
-      });
+      res.redirect("/500");
     });
   });
 

@@ -39,6 +39,9 @@ app.use((req, res, next) => {
   next();
 })
 
+app.get('/', (req, res) => {
+  res.render('../views/index');
+})
 app.use('/user', userRoutes(dbHelper));
 app.use('/api', apiRoutes(dbHelper));
 app.use('/profile', profileRoutes(dbHelper));
@@ -52,7 +55,7 @@ app.use('/500', (req, res, next) => {
 })
 
 app.use((req, res, next) => {
-  res.render('../views/index');
+  res.redirect('/404');
 })
 
 server.listen( 9001, () => {

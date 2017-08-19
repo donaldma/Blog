@@ -29,6 +29,10 @@ module.exports = (dbHelper) => {
             res.redirect(`/profile/${id}`)
           })
       })
+      .catch((error) => {
+        console.log(error);
+        res.redirect("/500");
+      });
   })
 
   router.get('/:id', (req, res) => {

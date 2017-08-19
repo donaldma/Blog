@@ -44,12 +44,20 @@ module.exports = (dbHelper) => {
     dbHelper.createPost(req.body).then((results) => {
       res.json(results);
     })
+    .catch((error) => {
+      console.log(error);
+      res.redirect("/500");
+    });
   });
 
   router.post('/posts/:id/edit', (req, res) => {
     dbHelper.updatePost(req.params.id, req.body).then((results) => {
       res.json(results);
     })
+    .catch((error) => {
+      console.log(error);
+      res.redirect("/500");
+    });
   });
 
   router.get('/posts/:id', (req, res) => {
