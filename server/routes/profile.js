@@ -38,7 +38,7 @@ module.exports = (dbHelper) => {
           res.redirect('/404');
         }
         res.render('profile', {
-          user: result[0]
+          person: result[0]
         });
       })
   })

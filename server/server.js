@@ -34,6 +34,11 @@ app.use('/styles', express.static('../styles/'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+app.use((req, res, next) => {
+  res.locals.user = req.session.user;
+  next();
+})
+
 app.use('/user', userRoutes(dbHelper));
 app.use('/api', apiRoutes(dbHelper));
 app.use('/profile', profileRoutes(dbHelper));
@@ -44,11 +49,6 @@ app.use('/404', (req, res, next) => {
 
 app.use('/500', (req, res, next) => {
   res.status(500).render('500');
-})
-
-app.use((req, res, next) => {
-  res.locals.user = req.session.user;
-  next();
 })
 
 app.use((req, res, next) => {
