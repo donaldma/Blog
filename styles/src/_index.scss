@@ -1,8 +1,6 @@
-body {
+html, body {
   background-color: $dark-white;
-  min-height: 400px;
-  margin-bottom: 100px;
-  clear: both;
+  height: 100%
 }
 
 .seperator {
@@ -38,7 +36,6 @@ body {
       }
     }
   }
-
   @media screen and (max-width: 37.5em) {
     padding: 20px 0;
     .site-title {
@@ -55,4 +52,22 @@ body {
 
 .login-container {
   padding-top: 150px;
+}
+
+.copyright{
+	width: 100%;
+	padding: 30px 0;
+	text-align: center;
+	font-size: 10px;
+	text-transform: uppercase;
+	background-color: $white;
+}
+
+.site {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  .site-content {
+    flex: 1;
+  }
 }

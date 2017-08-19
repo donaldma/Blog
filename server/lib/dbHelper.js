@@ -79,6 +79,18 @@ module.exports = (knex) => {
     getUserById: (id) => {
       return knex('users')
         .where({ id })
+    },
+
+    updateProfile: (id, name, email, avatar_url, password, about) => {
+      return knex('users')
+        .update({
+          name,
+          email,
+          avatar_url,
+          password,
+          about
+        })
+        .where({ id })
     }
 
   }
