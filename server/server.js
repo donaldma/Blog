@@ -40,8 +40,13 @@ app.use((req, res, next) => {
 })
 
 app.get('/', (req, res) => {
-  res.render('../views/index');
+  res.render('index');
 })
+
+app.get('/category*', (req, res) => {
+  res.render('index');
+})
+
 app.use('/user', userRoutes(dbHelper));
 app.use('/api', apiRoutes(dbHelper));
 app.use('/profile', profileRoutes(dbHelper));
