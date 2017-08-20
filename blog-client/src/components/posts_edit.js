@@ -138,6 +138,9 @@ function validate(values) {
   if (!values.title) {
     errors.title = "Enter a title!";
   }
+    if (!values.categories) {
+    errors.categories = "Select a category!";
+  }
   if (!values.content) {
     errors.content = "Enter some content!";
   }
@@ -148,9 +151,7 @@ function validate(values) {
 
 export default reduxForm({
   validate,
-  form: 'PostsNewForm',
-  onSubmitSuccess: () => {
-  }
+  form: 'PostsNewForm'
 })(
   connect(null, { editPost })(PostsEdit)
 );

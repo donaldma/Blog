@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 export const FETCH_POSTS = 'fetch_posts';
+export const FETCH_RANDOM_POSTS = 'fetch_random_posts';
 export const FETCH_POSTS_BEAUTY = 'fetch_posts_beauty';
 export const FETCH_POSTS_FASHION = 'fetch_posts_fashion';
 export const FETCH_POSTS_TRAVEL = 'fetch_posts_travel';
@@ -17,6 +18,15 @@ export function fetchPosts() {
 
   return {
     type: FETCH_POSTS,
+    payload: request
+  };
+}
+
+export function fetchRandomPosts() {
+  const request = axios.get('/api/posts/random');
+
+  return {
+    type: FETCH_RANDOM_POSTS,
     payload: request
   };
 }

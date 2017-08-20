@@ -47,9 +47,13 @@ app.get('/category*', (req, res) => {
   res.render('index');
 })
 
+app.get('/posts*', (req, res) => {
+  res.render('index');
+})
+
 app.use('/user', userRoutes(dbHelper));
-app.use('/api', apiRoutes(dbHelper));
 app.use('/profile', profileRoutes(dbHelper));
+app.use('/api', apiRoutes(dbHelper));
 
 app.use('/404', (req, res, next) => {
   res.status(404).render('404');

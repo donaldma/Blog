@@ -10,6 +10,12 @@ module.exports = (knex) => {
         .select()
     },
 
+    getRandomPosts: () => {
+      return knex.raw(`SELECT * FROM posts
+        ORDER BY RANDOM()
+        LIMIT 3`);
+    },
+
     getPostsBeauty: () => {
       return knex('posts')
         .select()

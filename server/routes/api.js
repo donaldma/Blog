@@ -10,6 +10,12 @@ module.exports = (dbHelper) => {
     })
   });
 
+  router.get('/posts/random', (req, res) => {
+    dbHelper.getRandomPosts().then((results) => {
+      res.json(results);
+    })
+  });
+
   router.get('/beauty', (req, res) => {
     dbHelper.getPostsBeauty().then((results) => {
       res.json(results);
@@ -68,7 +74,7 @@ module.exports = (dbHelper) => {
 
   router.delete('/posts/:id', (req, res) => {
     dbHelper.deletePost(req.params.id).then((result) => {
-      res.redirect('/posts');
+      res.json(result);
     })
     .catch((error) => {
       console.log(error);
@@ -77,7 +83,6 @@ module.exports = (dbHelper) => {
   });
 
   router.get("/user", (req, res) => {
-
     const user = req.session.user ? {
       id: req.session.user.id,
       name: req.session.user.name
