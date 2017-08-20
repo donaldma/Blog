@@ -18,13 +18,15 @@ module.exports = (dbHelper) => {
         } else {
           var password = result[0].password;
         }
+        let short_about = req.body.short_about || result[0].short_about
         let about = req.body.about || result[0].about;
-        dbHelper.updateProfile(id, name, email, avatar_url, password, about)
+        dbHelper.updateProfile(id, name, email, avatar_url, password, short_about, about)
           .then(() => {
             req.session.user.name = name;
             req.session.user.email = email;
             req.session.user.avatar_url = avatar_url;
             req.session.user.password = password;
+            req.session.user.short_about = short_about;
             req.session.user.about = about;
             res.redirect(`/profile/${id}`)
           })

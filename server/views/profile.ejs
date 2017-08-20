@@ -24,6 +24,8 @@
           <img class="profile-img" src="<%=person.avatar_url %>" />
           <h3><%= person.name %></h3>
           <h3><%= person.email %></h3>
+          <h3>Short about me</h3>
+          <p><%= person.short_about %></p>
           <h3>About Me</h3>
           <p><%= person.about %></p>
         </div>
@@ -50,6 +52,11 @@
               <input class="form-control" type="password" id="pass2" onblur="return passwordCheck()" placeholder="Confirm New Password">
             </div>
             <div class="form-group">
+              <label for="short-about-me">Short about me (Max 300 characters): </label>
+              <textarea class="form-control" maxlength="300" type="text" id="short-about-me" name="short_about"><%= person.short_about %></textarea>
+              <span id="counter">300</span>
+            </div>
+            <div class="form-group">
               <label for="about-me">About me: </label>
               <textarea class="form-control" type="text" id="about-me" name="about"><%= person.about %></textarea>
             </div>
@@ -73,6 +80,7 @@
         }
         return ok;
       }
+
       function FinalPasswordCheck() {
         var pass1 = document.getElementById('pass1').value;
         var pass2 = document.getElementById('pass2').value;

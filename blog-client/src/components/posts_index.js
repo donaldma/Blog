@@ -13,11 +13,24 @@ class PostsIndex extends Component {
   renderPosts() {
     return _.map(this.props.posts, (post, index) => {
       return (
-        <li className="list-group-item" key={index}>
-          <Link to={`/posts/${post.id}`}>
-          {post.title}
-          </Link>
-        </li>
+        <div className="col-sm-4" key={index}>
+          <div className="featured-container">
+            <div className="featured-img">
+              <div className="featured-content">
+                <span className="meta-cat">
+                  <Link to={`/category/${post.category}`}>
+                    {post.category}
+                  </Link>
+                </span>
+                <h3>
+                  <Link to={`/posts/${post.id}`}>
+                    {post.title}
+                  </Link>
+                </h3>
+              </div>
+            </div>
+          </div>
+        </div>
       );
     })
   }
@@ -25,25 +38,23 @@ class PostsIndex extends Component {
   render() {
     if (this.props.user[0]) {
       return(
-        <div>
+        <div classNameName="container">
           <div>
             <Link className="btn btn-primary" to="/posts/new">
               Add a Post
             </Link>
           </div>
-          <h3>Featured Posts</h3>
-          <ul className="list-group">
+          <div className="row">
             {this.renderPosts()}
-          </ul>
+          </div>
         </div>
       );
     }
     return(
-      <div>
-        <h3>Posts</h3>
-        <ul className="list-group">
+      <div classNameName="container">
+        <div className="row">
           {this.renderPosts()}
-        </ul>
+        </div>
       </div>
     );
   }

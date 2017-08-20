@@ -2,9 +2,12 @@ import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { createPost } from '../actions';
+import { createPost, fetchUser } from '../actions';
 
 class PostsNew extends Component {
+  componentDidMount() {
+    this.props.fetchUser();
+  }
   // Redux-Form convention
   renderField(field) {
     // ES6 destructing 
@@ -74,6 +77,11 @@ class PostsNew extends Component {
   }
 
   render() {
+    if(!this.props.user[0]) {
+      return(
+        <h1>not logged in</h1>
+      );
+    }
     const { handleSubmit } = this.props;
 
     return(
@@ -119,9 +127,15 @@ function validate(values) {
   return errors;
 }
 
+function mapStateToProps(state) {
+  return { 
+    user: state.user
+  };
+}
+
 export default reduxForm({
   validate,
   form: 'PostsNewForm'
 })(
-  connect(null, { createPost })(PostsNew)
+  connect(mapStateToProps, { createPost, fetchUser })(PostsNew)
 );

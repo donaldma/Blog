@@ -1,0 +1,28 @@
+.oops {
+  font-size: 150px;
+  font-weight: 700;
+  color: $dark-white;
+}
+
+a.error-link {
+  color: $dark-white;
+  text-decoration: none;
+}
+
+.error-text {
+  color: $dark-white;
+}
+
+.error-text-large {
+  color: $dark-white;
+  font-size: 80px;
+  font-weight: 600;    
+}
+
+.error-background {
+  background-image: url('../imgs/error_img.jpg');
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

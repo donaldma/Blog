@@ -87,13 +87,14 @@ module.exports = (knex) => {
         .where({ id })
     },
 
-    updateProfile: (id, name, email, avatar_url, password, about) => {
+    updateProfile: (id, name, email, avatar_url, password, short_about, about) => {
       return knex('users')
         .update({
           name,
           email,
           avatar_url,
           password,
+          short_about,
           about
         })
         .where({ id })
