@@ -20,6 +20,7 @@ module.exports = (dbHelper) => {
             id: result[0].id,
             avatar_url: result[0].avatar_url,
             name: result[0].name,
+            short_about: result[0].short_about
           }
           res.redirect('/');
         } else {

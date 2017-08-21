@@ -52,12 +52,15 @@ module.exports = (knex) => {
         .where({ id })
     },
 
-    createPost: (data) => {
+    createPost: (data, session) => {
+      console.log(session.user.id)
       return knex('posts')
         .insert({
           title: data.title,
           content: data.content,
-          category: data.categories
+          category: data.categories,
+          photo_url: data.photo,
+          user_id: session.user.id
         })
     },
 
@@ -98,6 +101,12 @@ module.exports = (knex) => {
           about
         })
         .where({ id })
+    },
+
+    joinUserPost: () => {
+      return knex.select('users.id', 'users.avatar_url', 'users.short_about')
+        .from('users')
+        .innerJoin('posts', 'users.id', 'posts.user_id')
     }
 
   }

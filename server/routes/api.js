@@ -47,7 +47,7 @@ module.exports = (dbHelper) => {
   });
 
   router.post('/posts', (req, res) => {
-    dbHelper.createPost(req.body).then((results) => {
+    dbHelper.createPost(req.body, req.session).then((results) => {
       res.json(results);
     })
     .catch((error) => {
@@ -85,9 +85,17 @@ module.exports = (dbHelper) => {
   router.get("/user", (req, res) => {
     const user = req.session.user ? {
       id: req.session.user.id,
-      name: req.session.user.name
+      name: req.session.user.name,
+      avatar_url: req.session.user.avatar_url,
+      short_about: req.session.user.short_about,
     } : null;
     res.json(user);
+  });
+
+  router.get("/sidebar", (req, res) => {
+    dbHelper.joinUserPost().then((results) => {
+      res.json(results);
+    });
   });
 
   return router;

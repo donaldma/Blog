@@ -70,6 +70,25 @@ class PostsNew extends Component {
     );
   }
 
+  renderFieldPhoto(field) {
+    const { meta: { touched, error } } = field;
+    const className = `form-group ${touched && error ? 'has-error' : ''}`;
+
+    return(
+      <div className={className}>
+        <label>{field.label}</label>
+        <input
+          className="form-control"
+          type="text"
+          {...field.input}
+        />
+        <div className="text-danger">
+        {touched ? error : ''}
+        </div>
+      </div>
+    );
+  }
+
   onSubmit = (values) => {
     this.props.createPost(values, () => {
       this.props.history.push('/');
@@ -97,6 +116,11 @@ class PostsNew extends Component {
           component={this.renderFieldSelect}
         />
         <Field
+          label="Photo"
+          name="photo"
+          component={this.renderFieldPhoto}
+        />
+        <Field
           label="Post Content"
           name="content"
           component={this.renderFieldLarge}
@@ -118,6 +142,9 @@ function validate(values) {
   }
   if (!values.categories) {
     errors.categories = "Select a category!";
+  }
+  if (!values.photo) {
+    errors.photo = "Upload a photo!";
   }
   if (!values.content) {
     errors.content = "Enter some content!";

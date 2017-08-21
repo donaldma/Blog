@@ -22,7 +22,8 @@ class PostsEdit extends Component {
     const data = {
       "title": this.props.post.title,
       "categories": this.props.post.category,
-      "content": this.props.post.content
+      "content": this.props.post.content,
+      "photo": this.props.post.photo_url
     };
 
     this.props.initialize(data);
@@ -89,6 +90,25 @@ class PostsEdit extends Component {
     );
   }
 
+  renderFieldPhoto(field) {
+    const { meta: { touched, error } } = field;
+    const className = `form-group ${touched && error ? 'has-error' : ''}`;
+
+    return(
+      <div className={className}>
+        <label>{field.label}</label>
+        <input
+          className="form-control"
+          type="text"
+          {...field.input}
+        />
+        <div className="text-danger">
+        {touched ? error : ''}
+        </div>
+      </div>
+    );
+  }
+
   onSubmit = (values) => {
     const id = this.props.post.id
     this.props.editPost(id, values, () => {
@@ -119,6 +139,11 @@ class PostsEdit extends Component {
           component={this.renderFieldSelect}
         />
         <Field
+          label="Photo"
+          name="photo"
+          component={this.renderFieldPhoto}
+        />
+        <Field
           label="Post Content"
           name="content"
           defaultValue={this.props.post.content}
@@ -140,6 +165,9 @@ function validate(values) {
   }
     if (!values.categories) {
     errors.categories = "Select a category!";
+  }
+  if (!values.photo) {
+    errors.photo = "Upload a photo!";
   }
   if (!values.content) {
     errors.content = "Enter some content!";

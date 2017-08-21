@@ -28,19 +28,25 @@
   "dependencies": {
     "axios": "^0.16.2",
     "babel-preset-stage-1": "^6.1.18",
+    "better-react-spinkit": "^2.0.0",
+    "css-loader": "^0.28.5",
     "dotenv": "^4.0.0",
     "lodash": "^3.10.1",
     "moment": "^2.18.1",
     "react": "^0.14.3",
     "react-dom": "^0.14.3",
+    "react-loading": "^0.1.4",
     "react-moment": "^0.6.1",
     "react-redux": "4.3.0",
     "react-refetch": "^1.0.0",
     "react-router": "^2.0.1",
     "react-router-dom": "^4.0.0",
+    "react-spinkit": "^3.0.0",
     "react-widgets": "^3.4.8",
     "redux": "^3.0.4",
     "redux-form": "^6.6.3",
-    "redux-promise": "^0.5.3"
+    "redux-promise": "^0.5.3",
+    "redux-thunk": "^2.2.0",
+    "style-loader": "^0.18.2"
   }
 }
