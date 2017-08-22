@@ -14,7 +14,6 @@ class PostsShow extends Component {
     this.state = {
       isEditing: false,
       post: {},
-      sidebar: this.props.sidebar
     };
   }
 
@@ -61,43 +60,64 @@ class PostsShow extends Component {
         </div>
       );
     }
+
     if(this.props.user[0]) {
       return (
         <div className="container">
-          <div className="col-md-9">          
-            <button className="btn btn-primary" onClick={this.onEditClick}> 
-              Edit Post
-            </button>
-            <button className="btn btn-danger" onClick={this.onDeleteClick}>
-              Delete Post
-            </button>
-            <h6><Moment format="ddd MMMM Do YYYY">{post.created_at}</Moment></h6>          
-            <h3>{post.title}</h3>
-            <img src={post.photo_url} className="post_img"/>
-            <h6>Category: {post.category}</h6>
-            <p>{post.content}</p>
-          </div>
-          <div className="col-md-3">
-            <h3>About Me</h3>
-            <img src={this.props.user[0].avatar_url} className="post_img"/>
-            <p>{this.props.user[0].short_about}</p>
+          <button className="btn btn-primary" onClick={this.onEditClick}> 
+            Edit Post
+          </button>
+          <button className="btn btn-danger" onClick={this.onDeleteClick}>
+            Delete Post
+          </button>
+          <div className="row">          
+            <div className="col-sm-8">
+              <h6 className="about-me-title">
+                <span className="post-sub">
+                  <Moment format="MMMM D, YYYY">{post.created_at}</Moment>
+                </span>
+              </h6>          
+              <h3 className="post-title">{post.title}</h3>
+              <img src={post.photo_url} className="post-img"/>
+              <p>{post.content}</p>
+            </div>
+            <div className="col-sm-4 about-me-container">
+              <h3 className="about-me-title">
+                <span className="post-sub">About Me</span>
+              </h3>
+              <img src={this.props.user[0].avatar_url} className="post-img"/>
+              <p>{this.props.user[0].short_about}</p>
+              <h3 className="about-me-title">
+                <span className="post-sub">Instagram</span>
+              </h3>            
+            </div>
           </div>
         </div>
       );
     } 
     return (
       <div className="container">
-        <div className="col-md-9">
-          <h6><Moment format="ddd MMMM Do YYYY">{post.created_at}</Moment></h6>
-          <h3>{post.title}</h3>
-          <img src={post.photo_url} className="post_img"/>        
-          <h6>Category: {post.category}</h6>
-          <p>{post.content}</p>
-        </div>
-        <div className="col-md-3">
-          <h3>About Me</h3>
-          <img src={obj.avatar_url} className="post_img"/>
-          <p>{obj.short_about}</p>
+        <div className="row">        
+          <div className="col-sm-8">
+            <h6 className="about-me-title">
+              <span className="post-sub">
+                <Moment format="MMMM D, YYYY">{post.created_at}</Moment>
+              </span>
+            </h6>
+            <h3 className="post-title">{post.title}</h3>
+            <img src={post.photo_url} className="post-img"/>        
+            <p>{post.content}</p>
+          </div>
+          <div className="col-sm-4 about-me-container">
+            <h3 className="about-me-title">
+              <span className="post-sub">About Me</span>
+            </h3>
+            <img src={obj.avatar_url} className="post-img"/>
+            <p>{obj.short_about}</p>
+            <h3 className="about-me-title">
+              <span className="post-sub">Instagram</span>
+            </h3>
+          </div>
         </div>
       </div>
     );

@@ -2,6 +2,7 @@ import axios from 'axios';
 
 export const FETCH_POSTS = 'fetch_posts';
 export const FETCH_RANDOM_POSTS = 'fetch_random_posts';
+export const FETCH_MOST_RECENT = 'fetch_most_recent';
 export const FETCH_POSTS_BEAUTY = 'fetch_posts_beauty';
 export const FETCH_POSTS_FASHION = 'fetch_posts_fashion';
 export const FETCH_POSTS_TRAVEL = 'fetch_posts_travel';
@@ -44,6 +45,15 @@ export function fetchRandomPosts() {
   };
 }
 
+export function fetchMostRecent() {
+  const request = axios.get('/api/posts/recent');
+
+  return {
+    type: FETCH_MOST_RECENT,
+    payload: request,
+  };
+}
+
 export function fetchPostsBeauty() {
   const request = axios.get('/api/beauty');
 
@@ -61,6 +71,7 @@ export function fetchPostsFashion() {
     payload: request
   };
 }
+
 
 export function fetchPostsTravel() {
   const request = axios.get('/api/travel');

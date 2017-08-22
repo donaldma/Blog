@@ -16,6 +16,12 @@ module.exports = (dbHelper) => {
     })
   });
 
+  router.get('/posts/recent', (req, res) => {
+    dbHelper.getMostRecent().then((results) => {
+      res.json(results);
+    })
+  });
+
   router.get('/beauty', (req, res) => {
     dbHelper.getPostsBeauty().then((results) => {
       res.json(results);

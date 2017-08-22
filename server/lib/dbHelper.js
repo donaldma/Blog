@@ -16,6 +16,13 @@ module.exports = (knex) => {
         LIMIT 3`);
     },
 
+    getMostRecent: () => {
+      return knex('posts')
+        .select()
+        .orderBy('created_at', 'desc')
+        .limit(1);
+    },
+
     getPostsBeauty: () => {
       return knex('posts')
         .select()

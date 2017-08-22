@@ -37,6 +37,7 @@
     "react-dom": "^0.14.3",
     "react-loading": "^0.1.4",
     "react-moment": "^0.6.1",
+    "react-preload": "^0.5.1",
     "react-redux": "4.3.0",
     "react-refetch": "^1.0.0",
     "react-router": "^2.0.1",
