@@ -1,6 +1,6 @@
- .category-select {
+.category-select {
   height: 3em;
-} 
+}
 
 textarea.form-control {
   height: 200px;
@@ -8,6 +8,7 @@ textarea.form-control {
 
 .post-img {
   width: 100%;
+  margin-bottom: 25px;
 }
 
 .post-sub {
@@ -22,4 +23,165 @@ textarea.form-control {
   margin-bottom: 25px;
   letter-spacing: 1px;
   font-size: 40px;
+}
+
+.delete-post {
+  color: black;
+  background: #fff;
+  border: 1px solid #ddd;
+  display: block;
+  font: 11px Montserrat, sans-serif;
+  letter-spacing: 2px;
+  padding: 10px 0;
+  width: 20%;
+  text-transform: uppercase;
+  margin: 10px auto;
+  text-align: center;
+  position: relative;
+  top: 5px;
+  transition: all 0.25s ease-out;
+}
+
+.delete-post:hover {
+  border-color: #eee;
+  color: $alert-danger;
+}
+
+.delete-post:focus {
+  outline: 0;
+}
+
+@media only screen and (max-width: 767px) {
+  .delete-post {
+    width: 40%
+  }
+}
+
+.modal {
+  padding-top: 300px;
+  font-family: Montserrat, sans-serif;
+}
+
+.modal-content {
+  border-radius: 0px !important;
+}
+
+.modal-header {
+  padding: 10px;
+}
+
+.modal-footer {
+  padding: 0 10px 10px;
+}
+
+.modal-delete-post {
+  color: black;
+  background: #fff;
+  border: 1px solid #ddd;
+  font: 11px Montserrat, sans-serif;
+  letter-spacing: 2px;
+  padding: 10px 0;
+  width: 20%;
+  text-transform: uppercase;
+  margin: 10px auto;
+  text-align: center;
+  position: relative;
+  top: 5px;
+  transition: all 0.25s ease-out;
+}
+
+.modal-delete-post:hover {
+  border-color: #eee;
+  color: $alert-danger;
+}
+
+@media only screen and (max-width: 767px) {
+  .modal-delete-post {
+    width: 30%
+  }
+}
+
+.modal-cancel {
+  color: black;
+  background: #fff;
+  border: 1px solid #ddd;
+  font: 11px Montserrat, sans-serif;
+  letter-spacing: 2px;
+  padding: 10px 0;
+  width: 20%;
+  text-transform: uppercase;
+  margin: 10px 10px;
+  text-align: center;
+  position: relative;
+  top: 5px;
+  transition: all 0.25s ease-out;
+}
+
+.modal-cancel:hover {
+  border-color: #eee;
+  color: $light-blue;
+}
+
+@media only screen and (max-width: 767px) {
+  .modal-cancel {
+    width: 30%
+  }
+}
+
+.submit-button {
+  float: right;
+  display: block;
+  color: black;
+  background: #fff;
+  border: 1px solid #ddd;
+  font: 11px Montserrat, sans-serif;
+  letter-spacing: 2px;
+  padding: 10px 0;
+  width: 10%;
+  text-transform: uppercase;
+  margin: 10px 0 10px 10px;
+  text-align: center;
+  position: relative;
+  top: 5px;
+  transition: all 0.25s ease-out;
+}
+
+.submit-button:hover {
+  border-color: #eee;
+  color: $light-blue;
+}
+
+@media only screen and (max-width: 767px) {
+  .submit-button {
+    width: 20%
+  }
+}
+
+.cancel-button {
+  float: right;
+  display: block;
+  color: black;
+  background: #fff;
+  border: 1px solid #ddd;
+  font: 11px Montserrat, sans-serif;
+  letter-spacing: 2px;
+  padding: 10px 0;
+  width: 10%;
+  text-transform: uppercase;
+  margin: 10px auto;
+  text-align: center;
+  position: relative;
+  top: 5px;
+  transition: all 0.25s ease-out;
+}
+
+.cancel-button:hover {
+  border-color: #eee;
+  color: $alert-danger;
+}
+
+@media only screen and (max-width: 767px) {
+  .cancel-button {
+    width: 20%
+  }
 }

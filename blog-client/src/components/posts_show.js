@@ -52,6 +52,14 @@ class PostsShow extends Component {
         </div>
       );
     }
+
+    if(!post) {
+      return (
+        <div>
+          <ReactLoading type="spinningBubbles" color="#444" />
+        </div>
+      );
+    }
     
     if (this.state.isEditing) {
       return (
@@ -64,14 +72,14 @@ class PostsShow extends Component {
     if(this.props.user[0]) {
       return (
         <div className="container">
-          <button className="btn btn-primary" onClick={this.onEditClick}> 
-            Edit Post
-          </button>
-          <button className="btn btn-danger" onClick={this.onDeleteClick}>
-            Delete Post
-          </button>
           <div className="row">          
             <div className="col-sm-8">
+              <button className="read-more" onClick={this.onEditClick}> 
+                Edit Post
+              </button>
+              <button className="delete-post" data-toggle="modal" data-target="#myModal">
+                Delete Post
+              </button>
               <h6 className="about-me-title">
                 <span className="post-sub">
                   <Moment format="MMMM D, YYYY">{post.created_at}</Moment>
@@ -92,11 +100,27 @@ class PostsShow extends Component {
               </h3>            
             </div>
           </div>
+          <div className="modal fade" id="myModal" role="dialog">
+            <div className="modal-dialog">
+              <div className="modal-content">
+                <div className="modal-header">
+                  <h4 className="modal-title">Delete Post</h4>
+                </div>
+                <div className="modal-body">
+                  <p>Are you sure you want to delete this post?</p>
+                </div>
+                <div className="modal-footer">
+                  <button type="button" className="modal-delete-post" onClick={this.onDeleteClick} data-dismiss="modal">Delete</button>
+                  <button type="button" className="modal-cancel" data-dismiss="modal">Cancel</button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       );
     } 
     return (
-      <div className="container">
+      <div classNameName="container">
         <div className="row">        
           <div className="col-sm-8">
             <h6 className="about-me-title">

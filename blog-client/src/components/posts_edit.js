@@ -116,6 +116,10 @@ class PostsEdit extends Component {
     });
   }
 
+  cancelEdit = () => {
+    this.props.onEditClick();
+  }
+
   render() {
     const { handleSubmit } = this.props;
 
@@ -149,8 +153,8 @@ class PostsEdit extends Component {
           defaultValue={this.props.post.content}
           component={this.renderFieldLarge}
         />
-        <button type="submit" className="btn btn-primary">Save</button>
-        <Link to="/" className="btn btn-danger">Cancel</Link>
+        <button type="submit" className="submit-button">Save</button>
+        <button className="cancel-button" onClick={this.cancelEdit}>Cancel</button>
       </form>
     );
   }

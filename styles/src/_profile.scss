@@ -1,10 +1,19 @@
 .profile-container {
-  padding-top: 70px;
   text-align: center;
+  margin-bottom: 15px;
 }
 
 .profile-img {
-  width: 60%;
+  width: 30%;
+}
+
+.profile {
+  text-align: left;
+  font-size: 13px;
+}
+
+.profile-sub {
+  display: inline-block;
 }
 
 .back-btn {
@@ -22,4 +31,58 @@
 
 #short-about-me {
   height: 100px;
+}
+
+.edit-btn {
+  color: black;
+  background: #fff;
+  border: 1px solid #ddd;
+  font: 11px Montserrat, sans-serif;
+  letter-spacing: 2px;
+  padding: 10px 0;
+  width: 25%;
+  text-transform: uppercase;
+  margin: 10px 10px;
+  text-align: center;
+  position: relative;
+  top: 5px;
+  transition: all 0.25s ease-out;
+}
+
+.edit-btn:hover {
+  border-color: #eee;
+  color: $light-blue;
+}
+
+@media only screen and (max-width: 767px) {
+  .edit-btn {
+    width: 35%
+  }
+}
+
+.back-btn {
+  color: black;
+  background: #fff;
+  border: 1px solid #ddd;
+  font: 11px Montserrat, sans-serif;
+  letter-spacing: 2px;
+  padding: 10px 0;
+  width: 30%;
+  text-transform: uppercase;
+  margin: 10px 10px;
+  text-align: center;
+  position: relative;
+  top: 5px;
+  transition: all 0.25s ease-out;
+}
+
+.back-btn:hover {
+  border-color: #eee;
+  color: $light-blue;
+}
+
+@media only screen and (max-width: 767px) {
+  .back-btn {
+    width: 40%
+  }
 }

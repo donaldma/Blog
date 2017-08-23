@@ -9,16 +9,16 @@ $(document).ready(function() {
   
 
   $('.edit-btn').on('click', function() {
-    $('.profile').slideToggle('fast');
-    $('.edit-profile').slideToggle('fast');
-    $('.back-btn').slideToggle('fast');
+    $('.profile').toggle();
+    $('.edit-profile').toggle();
+    $('.back-btn').toggle();
     $('.edit-btn').hide();
   });
 
   $('.back-btn').on('click', function() {
-    $('.profile').slideToggle('fast');
-    $('.edit-profile').slideToggle('fast');
-    $('.edit-btn').slideToggle('fast');
+    $('.profile').toggle();
+    $('.edit-profile').toggle();
+    $('.edit-btn').toggle();
     $('.back-btn').hide();
   });
 

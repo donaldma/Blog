@@ -31,15 +31,18 @@ class PostsIndex extends Component {
             <div className="featured-img" style={imgStyle}>
               <div className="featured-content">
                 <span className="meta-cat">
-                  <Link to={`/category/${post.category}`}>
-                    {post.category}
-                  </Link>
+                  <Moment format="MMMM D, YYYY">{post.created_at}</Moment>
                 </span>
                 <h3>
                   <Link to={`/posts/${post.id}`}>
                     {post.title}
                   </Link>
                 </h3>
+                <span className="meta-cat">In&nbsp;
+                  <Link to={`/category/${post.category}`}>
+                    {post.category}
+                  </Link>
+                </span>
               </div>
             </div>
           </div>
@@ -74,9 +77,9 @@ class PostsIndex extends Component {
     if (this.props.user[0]) {
       return(
         <div className="container">
-          <div>
-            <Link className="btn btn-primary" to="/posts/new">
-              Add a Post
+          <div style={{marginBottom: '20px'}}>
+            <Link className="read-more" to="/posts/new">
+              New Post
             </Link>
           </div>
           <div className="row">
@@ -92,8 +95,8 @@ class PostsIndex extends Component {
               <h3 className="post-title">{recent[0].title}</h3>
               <img src={recent[0].photo_url} className="post-img"/> 
               <p>{this.shorten(recent[0].content)}</p>
-              <Link className="btn btn-primary" to={`/posts/${recent[0].id}`}>
-                Continue Reading
+              <Link className="read-more" to={`/posts/${recent[0].id}`}>
+                read more
               </Link>
             </div>
             <div className="col-sm-4 about-me-container">
@@ -125,8 +128,8 @@ class PostsIndex extends Component {
             <h3 className="post-title">{recent[0].title}</h3>
             <img src={recent[0].photo_url} className="post-img"/> 
             <p>{this.shorten(recent[0].content)}</p>
-            <Link className="btn btn-primary" to={`/posts/${recent[0].id}`}>
-              Continue Reading
+            <Link className="read-more" to={`/posts/${recent[0].id}`}>
+              read more
             </Link>    
           </div>
           <div className="col-sm-4 about-me-container">
