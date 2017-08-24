@@ -56,10 +56,20 @@ class AboutMe extends Component {
 
     return(
       <div>
-        <h3>About Me</h3>
-        <img src={obj.avatar_url} />        
-        {this.renderAboutMe()}
-      </div>
+          <div className="row">
+            <div className="col-sm-12">
+              <div className="category-title-container">
+                <h3 className="category-title">About Me</h3>
+              </div>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-sm-12 aboutme-container">
+              <img src={obj.avatar_url} className="aboutme-img pull-left"/>
+              <div>{this.renderAboutMe()}</div>
+            </div>
+          </div>
+        </div>
     );
   }
 }
