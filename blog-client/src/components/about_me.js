@@ -15,7 +15,7 @@ class AboutMe extends Component {
   renderAboutMe() {
     return _.map(this.props.posts, post => {
       return (
-        <p key={post.id} className="aboutme-text">{post.about}</p>
+        <p key={post.id}>{post.about}</p>
       );
     })
   }
@@ -45,15 +45,9 @@ class AboutMe extends Component {
             </div>
           </div>
           <div className="row">
-            <div className="col-sm-6">
-              <div className="aboutme-container">
-                <img src={user[0].avatar_url} className="aboutme-img"/>
-              </div>
-            </div>
-            <div className="col-sm-6">
-              <div className="aboutme-img">
-                {this.renderAboutMe()}
-              </div>
+            <div className="col-sm-12 aboutme-container">
+              <img src={user[0].avatar_url} className="aboutme-img pull-left"/>
+              <div>{this.renderAboutMe()}</div>
             </div>
           </div>
         </div>
