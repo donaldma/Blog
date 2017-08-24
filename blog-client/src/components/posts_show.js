@@ -42,8 +42,8 @@ class PostsShow extends Component {
   render() {
     const { post } = this.props;
     const { sidebar } = this.props;
-    const key = Object.keys(sidebar.data)
-    const obj = sidebar.data[key]
+    const key = Object.keys(sidebar.data);
+    const obj = sidebar.data[key];
     
     if(sidebar.data.length === 0) {
       return (
@@ -74,7 +74,7 @@ class PostsShow extends Component {
         <div className="container">
           <div className="row">          
             <div className="col-sm-8">
-              <button className="read-more" onClick={this.onEditClick}> 
+              <button className="main-button" onClick={this.onEditClick}> 
                 Edit Post
               </button>
               <button className="delete-post" data-toggle="modal" data-target="#myModal">

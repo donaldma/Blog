@@ -1,12 +1,29 @@
-.oops {
-  font-size: 150px;
-  font-weight: 700;
-  color: $dark-white;
+.error-btn {
+  display: block;
+  color: black;
+  background: #fff;
+  border: 1px solid #ddd;
+  font: 11px Montserrat, sans-serif;
+  letter-spacing: 2px;
+  padding: 10px 0;
+  width: 20%;
+  text-transform: uppercase;
+  margin: 10px auto;
+  text-align: center;
+  position: relative;
+  top: 5px;
+  transition: all 0.25s ease-out;
 }
 
-a.error-link {
-  color: $dark-white;
-  text-decoration: none;
+.error-btn:hover {
+  border-color: #eee;
+  color: $light-blue;
+}
+
+@media only screen and (max-width: 767px) {
+  .error-btn {
+    width: 40%
+  }
 }
 
 .error-text {
@@ -14,6 +31,7 @@ a.error-link {
 }
 
 .error-text-large {
+  padding-top: 200px;
   color: $dark-white;
   font-size: 80px;
   font-weight: 600;    

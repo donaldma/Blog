@@ -1,0 +1,26 @@
+.category-title-container {
+  text-align: center;
+  border: 1px solid #eee;
+  background-color: $light-blue;
+}
+
+.category-title {
+  font-size: 35px;
+  letter-spacing: 2px;
+}
+
+.category-row {
+  padding: 15px 15px;
+}
+
+@media only screen and (max-width: 767px) {
+  .category-row {
+    padding: 0 15px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .category-title-container {
+    margin-bottom: 15px;
+  }
+}

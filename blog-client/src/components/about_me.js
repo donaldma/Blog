@@ -15,7 +15,7 @@ class AboutMe extends Component {
   renderAboutMe() {
     return _.map(this.props.posts, post => {
       return (
-        <p key={post.id}>{post.about}</p>
+        <p key={post.id} className="aboutme-text">{post.about}</p>
       );
     })
   }
@@ -23,8 +23,8 @@ class AboutMe extends Component {
   render() {
     const { user } = this.props;
     const { sidebar } = this.props;
-    const key = Object.keys(sidebar.data)
-    const obj = sidebar.data[key]
+    const key = Object.keys(sidebar.data);
+    const obj = sidebar.data[key];
     
     if(sidebar.data.length === 0) {
       return (
@@ -37,9 +37,25 @@ class AboutMe extends Component {
     if(this.props.user[0]) {
       return(
         <div>
-          <h3>About Me</h3>
-          <img src={user[0].avatar_url} />
-          {this.renderAboutMe()}
+          <div className="row">
+            <div className="col-sm-12">
+              <div className="category-title-container">
+                <h3 className="category-title">About Me</h3>
+              </div>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-sm-6">
+              <div className="aboutme-container">
+                <img src={user[0].avatar_url} className="aboutme-img"/>
+              </div>
+            </div>
+            <div className="col-sm-6">
+              <div className="aboutme-img">
+                {this.renderAboutMe()}
+              </div>
+            </div>
+          </div>
         </div>
       );
     }

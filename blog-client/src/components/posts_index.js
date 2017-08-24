@@ -54,8 +54,8 @@ class PostsIndex extends Component {
   render() {
     
     const { sidebar } = this.props;
-    const key = Object.keys(sidebar.data)
-    const obj = sidebar.data[key]
+    const key = Object.keys(sidebar.data);
+    const obj = sidebar.data[key];
     const { recent } = this.props;
 
     if(sidebar.data.length === 0) {
@@ -78,7 +78,7 @@ class PostsIndex extends Component {
       return(
         <div className="container">
           <div style={{marginBottom: '20px'}}>
-            <Link className="read-more" to="/posts/new">
+            <Link className="main-button" to="/posts/new">
               New Post
             </Link>
           </div>
@@ -95,7 +95,7 @@ class PostsIndex extends Component {
               <h3 className="post-title">{recent[0].title}</h3>
               <img src={recent[0].photo_url} className="post-img"/> 
               <p>{this.shorten(recent[0].content)}</p>
-              <Link className="read-more" to={`/posts/${recent[0].id}`}>
+              <Link className="main-button" to={`/posts/${recent[0].id}`}>
                 read more
               </Link>
             </div>
@@ -128,7 +128,7 @@ class PostsIndex extends Component {
             <h3 className="post-title">{recent[0].title}</h3>
             <img src={recent[0].photo_url} className="post-img"/> 
             <p>{this.shorten(recent[0].content)}</p>
-            <Link className="read-more" to={`/posts/${recent[0].id}`}>
+            <Link className="main-button" to={`/posts/${recent[0].id}`}>
               read more
             </Link>    
           </div>

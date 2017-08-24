@@ -239,12 +239,12 @@ a:focus {
   width: 100%;
 }
 
-.read-more:hover {
+.main-button:hover {
   border-color: #eee;
   color: $light-blue;
 }
 
-.read-more {
+.main-button {
   color: black;
   background: #fff;
   border: 1px solid #ddd;
@@ -263,7 +263,7 @@ a:focus {
 }
 
 @media only screen and (max-width: 767px) {
-  .read-more {
+  .main-button {
     width: 40%
   }
 }
