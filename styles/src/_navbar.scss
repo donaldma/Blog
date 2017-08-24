@@ -39,6 +39,12 @@
   border: none;
 }
 
+.navbar-default .navbar-toggle>li>a:focus,
+.navbar-default .navbar-toggle>li>a:hover {
+  color: $light-purple;  
+  background-color: transparent;
+}
+
 .navbar-default .navbar-toggle:focus,
 .navbar-default .navbar-toggle:hover {
   background-color: transparent;
@@ -46,7 +52,7 @@
 
 .navbar-default .navbar-nav>li>a:focus,
 .navbar-default .navbar-nav>li>a:hover {
-  color: $light-blue;
+  color: $light-purple;
   background-color: transparent;
 }
 

@@ -12,7 +12,6 @@ button:focus {
 
 a:hover,
 a:focus {
-  color: #000;
   outline: none;
   text-decoration: none;
 }
@@ -143,7 +142,7 @@ a:focus {
 }
 
 .featured-container .featured-img .featured-content:hover {
-  background-color: $light-blue;
+  background-color: $light-purple;
   opacity: 1;    
   transition: all 0.25s ease-out;
 }
@@ -241,7 +240,7 @@ a:focus {
 
 .main-button:hover {
   border-color: #eee;
-  color: $light-blue;
+  color: $light-purple;
 }
 
 .main-button {
