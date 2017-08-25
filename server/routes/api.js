@@ -23,25 +23,25 @@ module.exports = (dbHelper) => {
   });
 
   router.get('/beauty', (req, res) => {
-    dbHelper.getPostsBeauty().then((results) => {
+    dbHelper.getPostsBeauty(req.query.limit).then((results) => {
       res.json(results);
     })
   });
 
   router.get('/fashion', (req, res) => {
-    dbHelper.getPostsFashion().then((results) => {
+    dbHelper.getPostsFashion(req.query.limit).then((results) => {
       res.json(results);
     })
   });
 
   router.get('/travel', (req, res) => {
-    dbHelper.getPostsTravel().then((results) => {
+    dbHelper.getPostsTravel(req.query.limit).then((results) => {
       res.json(results);
     })
   });
 
   router.get('/fitness', (req, res) => {
-    dbHelper.getPostsFitness().then((results) => {
+    dbHelper.getPostsFitness(req.query.limit).then((results) => {
       res.json(results);
     })
   });

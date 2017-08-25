@@ -54,8 +54,8 @@ export function fetchMostRecent() {
   };
 }
 
-export function fetchPostsBeauty() {
-  const request = axios.get('/api/beauty');
+export function fetchPostsBeauty(limit) {
+  const request = axios.get(`/api/beauty?limit=${limit}`);
 
   return {
     type: FETCH_POSTS_BEAUTY,
@@ -63,8 +63,8 @@ export function fetchPostsBeauty() {
   };
 }
 
-export function fetchPostsFashion() {
-  const request = axios.get('/api/fashion');
+export function fetchPostsFashion(limit) {
+  const request = axios.get(`/api/fashion?limit=${limit}`);
 
   return {
     type: FETCH_POSTS_FASHION,
@@ -73,8 +73,8 @@ export function fetchPostsFashion() {
 }
 
 
-export function fetchPostsTravel() {
-  const request = axios.get('/api/travel');
+export function fetchPostsTravel(limit) {
+  const request = axios.get(`/api/travel?limit=${limit}`);
 
   return {
     type: FETCH_POSTS_TRAVEL,
@@ -82,8 +82,8 @@ export function fetchPostsTravel() {
   };
 }
 
-export function fetchPostsFitness() {
-  const request = axios.get('/api/fitness');
+export function fetchPostsFitness(limit) {
+  const request = axios.get(`/api/fitness?limit=${limit}`);
 
   return {
     type: FETCH_POSTS_FITNESS,

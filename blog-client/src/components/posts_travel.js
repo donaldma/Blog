@@ -6,14 +6,35 @@ import Moment from 'react-moment';
 import { fetchPostsTravel, fetchUser, fetchSidebar } from '../actions';
 
 class PostsTravel extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      limit: 4
+    }
+  }
+
   componentDidMount() {
-    this.props.fetchPostsTravel();
+    this.props.fetchPostsTravel(this.state.limit);
     this.props.fetchUser();
     this.props.fetchSidebar();        
   }
 
+  loadMore = () => {
+    if(_.size(this.props.posts) < this.state.limit) {
+      alert('All posts have been loaded!')
+    }
+    
+    this.setState({
+      limit: this.state.limit + 4 
+    }, () => {
+      this.props.fetchPostsTravel(this.state.limit);
+    })
+  }
+  
   renderPosts() {
-    return _.map(this.props.posts, (post, index) => {
+    const orderedPosts = _.orderBy(this.props.posts, 'created_at', 'desc')
+    return _.map(orderedPosts, (post, index) => {
       const imgStyle = {
         backgroundImage: `url(${post.photo_url})`
       }
@@ -71,6 +92,9 @@ class PostsTravel extends Component {
             <div className="row">
               {this.renderPosts()}
             </div>
+            <div>
+              <button className="main-button" onClick={this.loadMore}>Load More</button>
+            </div>
           </div>
           <div className="col-sm-4 about-me-container">
             <h3 className="about-me-title">
@@ -99,6 +123,9 @@ class PostsTravel extends Component {
           <div className="col-sm-8">
             <div className="row">
               {this.renderPosts()}
+            </div>
+            <div>
+              <button className="main-button" onClick={this.loadMore}>Load More</button>
             </div>
           </div>
           <div className="col-sm-4 about-me-container">

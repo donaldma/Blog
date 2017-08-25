@@ -23,28 +23,36 @@ module.exports = (knex) => {
         .limit(1);
     },
 
-    getPostsBeauty: () => {
+    getPostsBeauty: (limit) => {
       return knex('posts')
         .select()
         .where('category', 'Beauty')
+        .orderBy('created_at', 'desc')
+        .limit(limit)
     },
 
-    getPostsFashion: () => {
+    getPostsFashion: (limit) => {
       return knex('posts')
         .select()
         .where('category', 'Fashion')
+        .orderBy('created_at', 'desc')
+        .limit(limit)
     },
 
-    getPostsTravel: () => {
+    getPostsTravel: (limit) => {
       return knex('posts')
         .select()
         .where('category', 'Travel')
+        .orderBy('created_at', 'desc')
+        .limit(limit)
     },
 
-    getPostsFitness: () => {
+    getPostsFitness: (limit) => {
       return knex('posts')
         .select()
         .where('category', 'Fitness')
+        .orderBy('created_at', 'desc')
+        .limit(limit)
     },
 
     getAboutMe: () => {
@@ -76,7 +84,8 @@ module.exports = (knex) => {
         .update({
           title: data.title,
           content: data.content,
-          category: data.categories
+          category: data.categories,
+          photo_url: data.photo
         })
         .where({ id })
     },

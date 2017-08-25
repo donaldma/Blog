@@ -13,7 +13,6 @@ class PostsShow extends Component {
     
     this.state = {
       isEditing: false,
-      post: {},
     };
   }
 
