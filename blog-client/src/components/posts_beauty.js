@@ -42,8 +42,6 @@ class PostsBeauty extends Component {
   }
   
   renderPosts() {
-    console.log('limit', this.state.limit)
-    console.log(_.size(this.props.posts))
     const orderedPosts = _.orderBy(this.props.posts, 'created_at', 'desc')
     return _.map(orderedPosts, (post, index) => {
       const imgStyle = {

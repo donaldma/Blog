@@ -98,7 +98,11 @@ class PostsNew extends Component {
   render() {
     if(!this.props.user[0]) {
       return(
-        <h1>not logged in</h1>
+        <div className="col-sm-8 col-sm-offset-2 text-center">
+          <h1>Sorry</h1>
+          <h3>Must be an admin to access this page</h3>
+          <Link to='/user/login' className="main-button"> Go to Login </Link>
+        </div>
       );
     }
     const { handleSubmit } = this.props;

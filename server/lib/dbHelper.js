@@ -68,7 +68,6 @@ module.exports = (knex) => {
     },
 
     createPost: (data, session) => {
-      console.log(session.user.id)
       return knex('posts')
         .insert({
           title: data.title,

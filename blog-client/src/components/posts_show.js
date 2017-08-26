@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import ReduxThunk from 'redux-thunk';
 import { fetchPost, deletePost, fetchPosts, fetchUser, fetchSidebar } from '../actions';
 import Moment from 'react-moment';
-import ReactLoading from 'react-loading';
 import PostsEdit from './posts_edit';
 
 class PostsShow extends Component {
@@ -47,7 +46,7 @@ class PostsShow extends Component {
     if(sidebar.data.length === 0) {
       return (
         <div>
-          <ReactLoading type="spinningBubbles" color="#444" />
+          Loading...
         </div>
       );
     }
@@ -55,7 +54,7 @@ class PostsShow extends Component {
     if(!post) {
       return (
         <div>
-          <ReactLoading type="spinningBubbles" color="#444" />
+          Loading...
         </div>
       );
     }

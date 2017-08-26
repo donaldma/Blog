@@ -14,6 +14,16 @@
 </head>
 
 <body class="site">
+  <div class="animationload">
+    <div class="loader">&nbsp;</div>
+  </div>
+  <script>
+    $(window).ready(function() {
+      setTimeout(function() {
+        $('.animationload').hide();
+      }, 3000);
+    });
+  </script>
   <% include partials/_nav.ejs %>
   <div class="site-content">
     <div class="container">
