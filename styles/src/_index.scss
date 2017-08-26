@@ -243,6 +243,11 @@ a:focus {
   color: $light-purple;
 }
 
+.main-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
 .main-button {
   color: black;
   background: #fff;

@@ -10,7 +10,8 @@ class PostsBeauty extends Component {
     super(props);
 
     this.state = {
-      limit: 4
+      limit: 4,
+      disabled: false
     }
   }
 
@@ -19,12 +20,20 @@ class PostsBeauty extends Component {
     this.props.fetchUser();
     this.props.fetchSidebar();        
   }
-
+  
+  componentWillReceiveProps(nextProps) {
+    if(_.size(nextProps.posts) % 4 === 0 && this.props.posts !== nextProps.posts && _.size(nextProps.posts) < this.state.limit) {
+      alert('All posts have been loaded!');
+      this.setState({ disabled: true });    
+    }
+  }
+  
   loadMore = () => {
     if(_.size(this.props.posts) < this.state.limit) {
-      alert('All posts have been loaded!')
+      alert('All posts have been loaded!');
+      this.setState({ disabled: true });      
     }
-    
+
     this.setState({
       limit: this.state.limit + 4 
     }, () => {
@@ -33,6 +42,8 @@ class PostsBeauty extends Component {
   }
   
   renderPosts() {
+    console.log('limit', this.state.limit)
+    console.log(_.size(this.props.posts))
     const orderedPosts = _.orderBy(this.props.posts, 'created_at', 'desc')
     return _.map(orderedPosts, (post, index) => {
       const imgStyle = {
@@ -93,7 +104,7 @@ class PostsBeauty extends Component {
               {this.renderPosts()}
             </div>
             <div>
-              <button className="main-button" onClick={this.loadMore}>Load More</button>
+              <button className="main-button" onClick={this.loadMore} disabled={this.state.disabled}>Load More</button>
             </div>
           </div>
           <div className="col-sm-4 about-me-container">
@@ -125,7 +136,7 @@ class PostsBeauty extends Component {
               {this.renderPosts()}
             </div>
             <div>
-              <button className="main-button" onClick={this.loadMore}>Load More</button>
+              <button className="main-button" onClick={this.loadMore} disabled={this.state.disabled}>Load More</button>
             </div>
           </div>
           <div className="col-sm-4 about-me-container">

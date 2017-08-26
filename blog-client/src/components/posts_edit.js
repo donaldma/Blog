@@ -99,7 +99,7 @@ class PostsEdit extends Component {
         <label>{field.label}</label>
         <input
           className="form-control"
-          type="text"
+          type="url"
           {...field.input}
         />
         <div className="text-danger">

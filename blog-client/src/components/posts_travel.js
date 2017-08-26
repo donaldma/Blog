@@ -10,7 +10,8 @@ class PostsTravel extends Component {
     super(props);
 
     this.state = {
-      limit: 4
+      limit: 4,
+      disabled: false
     }
   }
 
@@ -20,9 +21,17 @@ class PostsTravel extends Component {
     this.props.fetchSidebar();        
   }
 
+  componentWillReceiveProps(nextProps) {
+    if(_.size(nextProps.posts) % 4 === 0 && this.props.posts !== nextProps.posts && _.size(nextProps.posts) < this.state.limit) {
+      alert('All posts have been loaded!');
+      this.setState({ disabled: true });      
+    }
+  }
+
   loadMore = () => {
     if(_.size(this.props.posts) < this.state.limit) {
-      alert('All posts have been loaded!')
+      alert('All posts have been loaded!');
+      this.setState({ disabled: true });          
     }
     
     this.setState({
@@ -93,7 +102,7 @@ class PostsTravel extends Component {
               {this.renderPosts()}
             </div>
             <div>
-              <button className="main-button" onClick={this.loadMore}>Load More</button>
+              <button className="main-button" onClick={this.loadMore} disabled={this.state.disabled}>Load More</button>
             </div>
           </div>
           <div className="col-sm-4 about-me-container">
@@ -125,7 +134,7 @@ class PostsTravel extends Component {
               {this.renderPosts()}
             </div>
             <div>
-              <button className="main-button" onClick={this.loadMore}>Load More</button>
+              <button className="main-button" onClick={this.loadMore} disabled={this.state.disabled}>Load More</button>
             </div>
           </div>
           <div className="col-sm-4 about-me-container">
