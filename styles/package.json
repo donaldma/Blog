@@ -12,7 +12,6 @@
   "dependencies": {
     "bootstrap-sass": "^3.3.7",
     "moment": "^2.18.1",
-    "node-sass": "^4.5.3",
-    "react-day-picker": "^6.1.0"
+    "node-sass": "^4.5.3"
   }
 }

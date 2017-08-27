@@ -58,13 +58,6 @@ class PostsIndex extends Component {
     const obj = sidebar.data[key];
     const { recent } = this.props;
 
-    const instagramStyle = {
-      width: '100%',
-      height: '300px',
-      border: '0',
-      overflow: 'hidden'
-    }
-
     if(sidebar.data.length === 0) {
       return (
         <div>
