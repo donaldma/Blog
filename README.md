@@ -28,7 +28,6 @@ npm start
 To compile the style sheets, run the following commands, then open /styles/src/main.scss in your code editor and perform a save.
 
 ``` 
-
 cd styles
 npm start
 ```
