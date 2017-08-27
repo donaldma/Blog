@@ -4,7 +4,7 @@ Blog built with react/redux front end and node, express, postgresql back end.
 
 [Deployed Version] coming soon...
 
-[Production Build Reposistory] (https://github.com/donaldma/Blog-Production)
+[Production Build Reposistory](https://github.com/donaldma/Blog-Production)
 
 ### Getting Started
 
