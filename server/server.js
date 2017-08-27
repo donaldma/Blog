@@ -67,6 +67,6 @@ app.use((req, res, next) => {
   res.redirect('/404');
 })
 
-server.listen( 9001, () => {
+server.listen( process.env.PORT || 9001, () => {
   console.log('Server running');
 });

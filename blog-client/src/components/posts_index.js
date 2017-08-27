@@ -58,6 +58,13 @@ class PostsIndex extends Component {
     const obj = sidebar.data[key];
     const { recent } = this.props;
 
+    const instagramStyle = {
+      width: '100%',
+      height: '300px',
+      border: '0',
+      overflow: 'hidden'
+    }
+
     if(sidebar.data.length === 0) {
       return (
         <div>
@@ -66,7 +73,7 @@ class PostsIndex extends Component {
       );
     }
 
-    if(!recent[0]) {
+    if(!recent) {
       return (
         <div>
           Loading...
@@ -98,6 +105,17 @@ class PostsIndex extends Component {
               <Link className="main-button" to={`/posts/${recent[0].id}`}>
                 read more
               </Link>
+              <h6 className="about-me-title">
+                <span className="post-sub">
+                  <Moment format="MMMM D, YYYY">{recent[1].created_at}</Moment>
+                </span>
+              </h6>
+              <h3 className="post-title">{recent[1].title}</h3>
+              <img src={recent[1].photo_url} className="post-img"/> 
+              <p>{this.shorten(recent[1].content)}</p>
+              <Link className="main-button" to={`/posts/${recent[1].id}`}>
+                read more
+              </Link>
             </div>
             <div className="col-sm-4 about-me-container">
               <h3 className="about-me-title">
@@ -108,6 +126,8 @@ class PostsIndex extends Component {
               <h3 className="about-me-title">
                 <span className="post-sub">Instagram</span>
               </h3>
+              <script src="//lightwidget.com/widgets/lightwidget.js"></script>
+              <iframe src="//lightwidget.com/widgets/89e6b5ac368c53719a4adacb167d22cb.html" scrolling="no" allowTransparency="true" className="lightwidget-widget"></iframe>
             </div>
           </div>
         </div>
@@ -120,17 +140,32 @@ class PostsIndex extends Component {
         </div>
         <div className="row">
           <div className="col-sm-8">
-            <h6 className="about-me-title">
-              <span className="post-sub">
-                <Moment format="MMMM D, YYYY">{recent[0].created_at}</Moment>
-              </span>
-            </h6>
-            <h3 className="post-title">{recent[0].title}</h3>
-            <img src={recent[0].photo_url} className="post-img"/> 
-            <p>{this.shorten(recent[0].content)}</p>
-            <Link className="main-button" to={`/posts/${recent[0].id}`}>
-              read more
-            </Link>    
+            <div className="recent-post">
+              <h6 className="about-me-title">
+                <span className="post-sub">
+                  <Moment format="MMMM D, YYYY">{recent[0].created_at}</Moment>
+                </span>
+              </h6>
+              <h3 className="post-title">{recent[0].title}</h3>
+              <img src={recent[0].photo_url} className="post-img"/> 
+              <p>{this.shorten(recent[0].content)}</p>
+              <Link className="main-button" to={`/posts/${recent[0].id}`}>
+                read more
+              </Link>
+            </div>
+            <div>
+              <h6 className="about-me-title">
+                  <span className="post-sub">
+                    <Moment format="MMMM D, YYYY">{recent[1].created_at}</Moment>
+                  </span>
+              </h6>
+              <h3 className="post-title">{recent[1].title}</h3>
+              <img src={recent[1].photo_url} className="post-img"/> 
+              <p>{this.shorten(recent[1].content)}</p>
+              <Link className="main-button" to={`/posts/${recent[1].id}`}>
+                read more
+              </Link>    
+            </div>
           </div>
           <div className="col-sm-4 about-me-container">
             <h3 className="about-me-title">
@@ -141,6 +176,8 @@ class PostsIndex extends Component {
             <h3 className="about-me-title">
               <span className="post-sub">Instagram</span>
             </h3>
+            <script src="//lightwidget.com/widgets/lightwidget.js"></script>
+            <iframe src="//lightwidget.com/widgets/89e6b5ac368c53719a4adacb167d22cb.html" scrolling="no" allowTransparency="true" className="lightwidget-widget"></iframe>
           </div>
         </div>
       </div>
@@ -153,7 +190,7 @@ function mapStateToProps(state) {
     posts: state.posts,
     user: state.user,
     sidebar: state.sidebar,
-    recent: state.recent
+    recent: state.recent[0]
   }
 }
 

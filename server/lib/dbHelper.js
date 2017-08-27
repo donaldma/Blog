@@ -20,7 +20,7 @@ module.exports = (knex) => {
       return knex('posts')
         .select()
         .orderBy('created_at', 'desc')
-        .limit(1);
+        .limit(2);
     },
 
     getPostsBeauty: (limit) => {

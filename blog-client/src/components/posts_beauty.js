@@ -114,6 +114,8 @@ class PostsBeauty extends Component {
             <h3 className="about-me-title">
               <span className="post-sub">Instagram</span>
             </h3>
+            <script src="//lightwidget.com/widgets/lightwidget.js"></script>
+            <iframe src="//lightwidget.com/widgets/89e6b5ac368c53719a4adacb167d22cb.html" scrolling="no" allowTransparency="true" className="lightwidget-widget"></iframe>
           </div>
         </div>
       </div>
@@ -146,6 +148,8 @@ class PostsBeauty extends Component {
             <h3 className="about-me-title">
               <span className="post-sub">Instagram</span>
             </h3>
+            <script src="//lightwidget.com/widgets/lightwidget.js"></script>
+            <iframe src="//lightwidget.com/widgets/89e6b5ac368c53719a4adacb167d22cb.html" scrolling="no" allowTransparency="true" className="lightwidget-widget"></iframe>
           </div>
         </div>
       </div>
