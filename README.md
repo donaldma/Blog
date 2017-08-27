@@ -17,14 +17,12 @@ To start the express server:
 ```
 cd server
 npm start
-
 ```
 
 To start the blog-client server:
 ```
 cd blog-client
 npm start
-
 ```
 
 To compile the style sheets, run the following commands, then open /styles/src/main.scss in your code editor and perform a save.
@@ -33,7 +31,6 @@ To compile the style sheets, run the following commands, then open /styles/src/m
 
 cd styles
 npm start
-
 ```
 
 You are all set, open the web app on your browser: http://localhost:9001/
