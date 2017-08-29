@@ -8,8 +8,7 @@ class AboutMe extends Component {
   componentDidMount() {
     this.props.fetchAboutMe();
     this.props.fetchUser();
-    this.props.fetchSidebar();    
-    
+    this.props.fetchSidebar();
   }
 
   renderAboutMe() {
