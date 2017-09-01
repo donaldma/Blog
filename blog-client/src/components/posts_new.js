@@ -101,10 +101,11 @@ class PostsNew extends Component {
         <div className="col-sm-8 col-sm-offset-2 text-center">
           <h1>Sorry</h1>
           <h3>Must be an admin to access this page</h3>
-          <Link to='/user/login' className="main-button"> Go to Login </Link>
+          <a href='/user/login' className="main-button"> Go to Login </a>
         </div>
       );
     }
+
     const { handleSubmit } = this.props;
 
     return(

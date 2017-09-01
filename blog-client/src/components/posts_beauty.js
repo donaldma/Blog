@@ -22,7 +22,7 @@ class PostsBeauty extends Component {
   }
   
   componentWillReceiveProps(nextProps) {
-    if(_.size(nextProps.posts) % 4 === 0 && this.props.posts !== nextProps.posts && _.size(nextProps.posts) < this.state.limit) {
+    if(_.size(nextProps.posts) !== 0 && _.size(nextProps.posts) % 4 === 0 && this.props.posts !== nextProps.posts && _.size(nextProps.posts) < this.state.limit) {
       alert('All posts have been loaded!');
       this.setState({ disabled: true });    
     }
@@ -73,8 +73,32 @@ class PostsBeauty extends Component {
     const key = Object.keys(sidebar.data);
     const obj = sidebar.data[key];
 
+    if(_.size(this.props.posts) === 0) {
+      return(
+        <div>
+          <div style={{marginBottom: '20px'}}>
+            <Link className="main-button" to="/posts/new">
+              New Post
+            </Link>
+          </div>
+          <div className="row">
+            <div className="col-sm-12">
+              <div className="category-title-container">
+                <h3 className="category-title">Beauty</h3>
+              </div>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-sm-12 text-center">
+              <h3>No Posts</h3>
+            </div>
+          </div>
+        </div>
+      );
+    }
+    
     if(sidebar.data.length === 0) {
-      return (
+      return(
         <div>
           Loading...
         </div>

@@ -58,6 +58,23 @@ class PostsIndex extends Component {
     const obj = sidebar.data[key];
     const { recent } = this.props;
 
+    if(_.size(this.props.posts) === 0) {
+      return(
+        <div>
+          <div style={{marginBottom: '20px'}}>
+            <Link className="main-button" to="/posts/new">
+              New Post
+            </Link>
+          </div>
+          <div className="row">
+            <div className="col-sm-12 text-center">
+              <h3>No Posts</h3>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
     if(sidebar.data.length === 0) {
       return (
         <div>
