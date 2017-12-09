@@ -11,14 +11,6 @@ export default function(state = {}, action) {
       return _.mapKeys(action.payload.data, 'id');
     case FETCH_RANDOM_POSTS:
       return _.mapKeys(action.payload.data.rows, 'id');
-    case FETCH_POSTS_BEAUTY:
-      return _.mapKeys(action.payload.data, 'id');
-    case FETCH_POSTS_FASHION:
-      return _.mapKeys(action.payload.data, 'id');
-    case FETCH_POSTS_TRAVEL:
-      return _.mapKeys(action.payload.data, 'id');
-    case FETCH_POSTS_FITNESS:
-      return _.mapKeys(action.payload.data, 'id');
     case FETCH_ABOUT:
       return _.mapKeys(action.payload.data, 'id');
     default:

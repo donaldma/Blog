@@ -2,13 +2,13 @@ import _ from 'lodash';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { fetchAboutMe, fetchUser, fetchSidebar } from '../actions';
+import { fetchAboutMe, fetchUser } from '../actions';
 
 class AboutMe extends Component {
   componentDidMount() {
     this.props.fetchAboutMe();
     this.props.fetchUser();
-    this.props.fetchSidebar();
+    
   }
 
   renderAboutMe() {
@@ -21,17 +21,6 @@ class AboutMe extends Component {
 
   render() {
     const { user } = this.props;
-    const { sidebar } = this.props;
-    const key = Object.keys(sidebar.data);
-    const obj = sidebar.data[key];
-    
-    if(sidebar.data.length === 0) {
-      return (
-        <div>
-          Loading...
-        </div>
-      );
-    }
 
     if(this.props.user[0]) {
       return(
@@ -76,9 +65,8 @@ class AboutMe extends Component {
 function mapStateToProps(state) {
   return { 
     posts: state.posts, 
-    user: state.user,
-    sidebar: state.sidebar
+    user: state.user
   }
 }
 
-export default connect(mapStateToProps, { fetchAboutMe, fetchUser, fetchSidebar })(AboutMe);
+export default connect(mapStateToProps, { fetchAboutMe, fetchUser })(AboutMe);

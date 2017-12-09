@@ -3,7 +3,7 @@
   color: black;
   background: #fff;
   border: 1px solid #ddd;
-  font: 11px Montserrat, sans-serif;
+  font-size: 11px;
   letter-spacing: 2px;
   padding: 10px 0;
   width: 20%;
@@ -17,7 +17,7 @@
 
 .error-btn:hover {
   border-color: #eee;
-  color: $light-purple;
+  color: $red;
 }
 
 @media only screen and (max-width: 767px) {

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import ReduxThunk from 'redux-thunk';
-import { fetchPost, deletePost, fetchPosts, fetchUser, fetchSidebar } from '../actions';
+import { fetchPost, deletePost, fetchPosts, fetchUser } from '../actions';
 import Moment from 'react-moment';
 import PostsEdit from './posts_edit';
 
@@ -23,7 +23,6 @@ class PostsShow extends Component {
     const { id } = this.props.match.params;
     this.props.fetchPost(id);
     this.props.fetchUser();
-    this.props.fetchSidebar();
   }
 
   onDeleteClick = () => {
@@ -39,17 +38,6 @@ class PostsShow extends Component {
 
   render() {
     const { post } = this.props;
-    const { sidebar } = this.props;
-    const key = Object.keys(sidebar.data);
-    const obj = sidebar.data[key];
-    
-    if(sidebar.data.length === 0) {
-      return (
-        <div>
-          Loading...
-        </div>
-      );
-    }
 
     if(!post) {
       return (
@@ -87,16 +75,6 @@ class PostsShow extends Component {
               <img src={post.photo_url} className="post-img"/>
               <p>{post.content}</p>
             </div>
-            <div className="col-sm-4 about-me-container">
-              <h3 className="about-me-title">
-                <span className="post-sub">About Me</span>
-              </h3>
-              <img src={this.props.user[0].avatar_url} className="post-img"/>
-              <p>{this.props.user[0].short_about}</p>
-              <h3 className="about-me-title">
-                <span className="post-sub">Instagram</span>
-              </h3>            
-            </div>
           </div>
           <div className="modal fade" id="myModal" role="dialog">
             <div className="modal-dialog">
@@ -120,7 +98,7 @@ class PostsShow extends Component {
     return (
       <div classNameName="container">
         <div className="row">        
-          <div className="col-sm-8">
+          <div className="col-sm-12">
             <h6 className="about-me-title">
               <span className="post-sub">
                 <Moment format="MMMM D, YYYY">{post.created_at}</Moment>
@@ -129,16 +107,6 @@ class PostsShow extends Component {
             <h3 className="post-title">{post.title}</h3>
             <img src={post.photo_url} className="post-img"/>        
             <p>{post.content}</p>
-          </div>
-          <div className="col-sm-4 about-me-container">
-            <h3 className="about-me-title">
-              <span className="post-sub">About Me</span>
-            </h3>
-            <img src={obj.avatar_url} className="post-img"/>
-            <p>{obj.short_about}</p>
-            <h3 className="about-me-title">
-              <span className="post-sub">Instagram</span>
-            </h3>
           </div>
         </div>
       </div>
@@ -150,9 +118,8 @@ class PostsShow extends Component {
 function mapStateToProps(state, ownProps) {
   return { 
     post: state.posts[ownProps.match.params.id],
-    user: state.user,
-    sidebar: state.sidebar
+    user: state.user
   };
 }
 
-export default connect(mapStateToProps, { fetchPost, deletePost, fetchPosts, fetchUser, fetchSidebar })(PostsShow);
+export default connect(mapStateToProps, { fetchPost, deletePost, fetchPosts, fetchUser })(PostsShow);

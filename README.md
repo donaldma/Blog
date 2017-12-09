@@ -2,7 +2,7 @@
 
 Blog built with react/redux front end and node, express, postgresql back end.
 
-[Deployed Version](https://gabriella-blog.herokuapp.com/)
+[Deployed Version]()
 
 ### Getting Started
 

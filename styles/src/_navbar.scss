@@ -4,7 +4,6 @@
   border-top: 2px solid #E0E1E1;
   box-shadow: 0px 3px 5px rgb(181, 181, 181);
   z-index: 9999;
-  font-family: Roboto, sans-serif;
   font-size: 10px;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -41,7 +40,7 @@
 
 .navbar-default .navbar-toggle>li>a:focus,
 .navbar-default .navbar-toggle>li>a:hover {
-  color: $light-purple;  
+  color: $red;  
   background-color: transparent;
 }
 
@@ -52,7 +51,7 @@
 
 .navbar-default .navbar-nav>li>a:focus,
 .navbar-default .navbar-nav>li>a:hover {
-  color: $light-purple;
+  color: $red;
   background-color: transparent;
 }
 

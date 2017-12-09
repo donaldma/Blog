@@ -1,7 +1,7 @@
 html,
 body {
   height: 100%;
-  font-family: Georgia, serif;
+  font-family: Lato, serif;
   font-size: 15px;
   line-height: 28px;
 }
@@ -80,7 +80,6 @@ a:focus {
   font-size: 10px;
   text-transform: uppercase;
   background-color: $dark-white;
-  font-family: Roboto, sans-serif;
   letter-spacing: 2px;
 }
 
@@ -142,7 +141,7 @@ a:focus {
 }
 
 .featured-container .featured-img .featured-content:hover {
-  background-color: $light-purple;
+  background-color: $red;
   opacity: 1;    
   transition: all 0.25s ease-out;
 }
@@ -156,7 +155,6 @@ a:focus {
 }
 
 .featured-container .featured-img .featured-content .meta-cat {
-  font-family: 'Montserrat', sans-serif;
   color: #222;
   font-size: 10px;
   letter-spacing: 2px;
@@ -244,7 +242,7 @@ a:focus {
 
 .main-button:hover {
   border-color: #eee;
-  color: $light-purple;
+  color: $red;
 }
 
 .main-button:disabled {
@@ -278,27 +276,22 @@ a:focus {
 
 .animationload {
   position: fixed;
-  top:0;
-  left:0;
-  right:0;
-  bottom:0;
-  background-color:#fff;
-  z-index:999999;
-}
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #2F2F2F;
+  z-index: 999999; }
 
 .loader {
-  width:200px;
-  height:200px;
-  font-size: 24px;
-  text-align: center;
-  position:absolute;
-  left:50%;
-  top:50%;
-  background-image:url(https://i.pinimg.com/originals/6c/f8/9a/6cf89a8bb47c0d7c2d5ec120749fda86.gif);
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  width: 100%;
+  height: 100%;
+  background-image:url('../imgs/loading.gif');
   background-repeat:no-repeat;
-  background-position:center;
-  margin:-100px 0 0 -100px;
-}
+  background-position:center; }
 
 .lightwidget-widget {
   width: 100%;

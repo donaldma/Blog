@@ -5,7 +5,7 @@ const router = express.Router();
 
 module.exports = (dbHelper) => {
   router.get('/posts', (req, res) => {
-    dbHelper.getPosts().then((results) => {
+    dbHelper.getPosts(req.query.limit).then((results) => {
       res.json(results);
     })
   });
@@ -18,30 +18,6 @@ module.exports = (dbHelper) => {
 
   router.get('/posts/recent', (req, res) => {
     dbHelper.getMostRecent().then((results) => {
-      res.json(results);
-    })
-  });
-
-  router.get('/beauty', (req, res) => {
-    dbHelper.getPostsBeauty(req.query.limit).then((results) => {
-      res.json(results);
-    })
-  });
-
-  router.get('/fashion', (req, res) => {
-    dbHelper.getPostsFashion(req.query.limit).then((results) => {
-      res.json(results);
-    })
-  });
-
-  router.get('/travel', (req, res) => {
-    dbHelper.getPostsTravel(req.query.limit).then((results) => {
-      res.json(results);
-    })
-  });
-
-  router.get('/fitness', (req, res) => {
-    dbHelper.getPostsFitness(req.query.limit).then((results) => {
       res.json(results);
     })
   });
@@ -96,12 +72,6 @@ module.exports = (dbHelper) => {
       short_about: req.session.user.short_about,
     } : null;
     res.json(user);
-  });
-
-  router.get("/sidebar", (req, res) => {
-    dbHelper.joinUserPost().then((results) => {
-      res.json(results);
-    });
   });
 
   return router;

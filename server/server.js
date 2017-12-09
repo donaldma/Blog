@@ -1,22 +1,24 @@
-const ENV = process.env.ENV || "development";
+const PORT = 9010
+const ENV = process.env.NODE_ENV || "development";
 const express = require('express');  
-const app = express();
 const http = require('http'); 
+
+const app = express();
 const server = http.createServer(app);
 const cors = require('cors');
-const db  = require('./db');
+const bodyParser  = require("body-parser");
+
 const knexConfig = require("./knexfile");
 const knex = require("knex")(knexConfig[ENV]);
-const bodyParser  = require("body-parser");
-const router = express.Router();
-const dbHelper = require("./lib/dbHelper")(knex);
+const knexLogger = require('knex-logger');
+
 const apiRoutes = require("./routes/api");
 const userRoutes = require("./routes/user");
 const profileRoutes = require("./routes/profile");
-const knexLogger = require('knex-logger');
 
+const dbHelper = require("./lib/dbHelper")(knex);
 const session = require("express-session")({
-    secret: process.env.SECRET,
+    secret: 'hi my name is stan',
     resave: false,
     saveUninitialized: true
 });
@@ -34,25 +36,14 @@ app.use('/styles', express.static('../styles/'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.use((req, res, next) => {
-  res.locals.user = req.session.user;
-  next();
-})
-
 app.get('/', (req, res) => {
   res.render('index');
 })
 
-app.get('/category*', (req, res) => {
+app.get('/posts/*', (req, res) => {
   res.render('index');
 })
 
-app.get('/posts*', (req, res) => {
-  res.render('index');
-})
-
-app.use('/user', userRoutes(dbHelper));
-app.use('/profile', profileRoutes(dbHelper));
 app.use('/api', apiRoutes(dbHelper));
 
 app.use('/404', (req, res, next) => {
@@ -67,6 +58,6 @@ app.use((req, res, next) => {
   res.redirect('/404');
 })
 
-server.listen( process.env.PORT || 9001, () => {
-  console.log('Server running');
+server.listen( process.env.PORT || PORT, () => {
+  console.log('Server running on', PORT);
 });

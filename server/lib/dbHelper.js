@@ -5,9 +5,11 @@ const bcrypt = require("bcrypt");
 module.exports = (knex) => {
   return {
 
-    getPosts: () => {
+    getPosts: (limit) => {
       return knex('posts')
         .select()
+        .orderBy('created_at', 'desc')
+        .limit(limit)
     },
 
     getRandomPosts: () => {
@@ -23,42 +25,10 @@ module.exports = (knex) => {
         .limit(2);
     },
 
-    getPostsBeauty: (limit) => {
-      return knex('posts')
-        .select()
-        .where('category', 'Beauty')
-        .orderBy('created_at', 'desc')
-        .limit(limit)
-    },
-
-    getPostsFashion: (limit) => {
-      return knex('posts')
-        .select()
-        .where('category', 'Fashion')
-        .orderBy('created_at', 'desc')
-        .limit(limit)
-    },
-
-    getPostsTravel: (limit) => {
-      return knex('posts')
-        .select()
-        .where('category', 'Travel')
-        .orderBy('created_at', 'desc')
-        .limit(limit)
-    },
-
-    getPostsFitness: (limit) => {
-      return knex('posts')
-        .select()
-        .where('category', 'Fitness')
-        .orderBy('created_at', 'desc')
-        .limit(limit)
-    },
-
     getAboutMe: () => {
       return knex('users')
         .select()
-        .where('name', 'Gabriella Gloria')
+        .where('name', '')
     },
 
     getPost: (id) => {
